@@ -1,7 +1,0 @@
-RewriteEngine On
-RewriteCond %{HTTPS} !on
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
-RewriteCond %{HTTP_HOST} ^www\.robisie\.co$
-RewriteRule ^/?$ "https\:\/\/robisie\.co\/" [R=301,L]
-RewriteCond %{HTTP_HOST} ^XXX\.XXX\.XXX\.XXX
-RewriteRule (.*) https://robisie.co/$1 [R=301,L]
