@@ -1,0 +1,49 @@
+
+<md-dialog aria-label="reviews" class='profilerev'>
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+       <h2>{{offer.professional_fname}} {{offer.professional_lname | limitTo:1}}.</h2>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content >
+      <div class="md-dialog-content profile-reviews ">
+      	<div class="profile-photo">
+            <img ng-if='offer.professional_picture' ng-src='{{offer.professional_picture}}' alt="" ng-click='updatePhoto'>
+            <img ng-if='!offer.professional_picture' ng-src="/img/user.png" alt="">
+        </div>
+      	<div class="about">
+      		<span>O mnie:</span>
+		        <p><span>{{offer.professional_description}}</span></p>
+      	</div>
+		
+        <h2>Recenzje użytkowników:</h2>
+
+        <div class="container">
+        	<md-list-item class="md-3-line md-whiteframe-2dp" ng-repeat="rev in reviews | orderBy: review_timeStamp:true" ng-click="null" ng-show='reviews[0]'>
+            <img ng-if='rev.picture_Customer' ng-src='{{rev.picture_Customer}}' alt="" ng-click='updatePhoto'>
+              <img ng-if='!rev.picture_Customer' ng-src="/img/user.png" alt="">
+          	<div class="md-list-item-text" layout="column">
+	            <h3>{{ rev.review_Title }}</h3>
+	            <h4>{{ rev.review_Message }}</h4>
+	            <p>Ocena: {{ rev.ranking }}%</p>
+              <h4>Data: {{rev.review_timeStamp}}</h4>
+	            <em>~{{rev.fName_Customer}} {{rev.lName_Customer}}</em>
+
+          	</div>
+        	</md-list-item>
+       </div>	
+       <div ng-show='!reviews[0]' ng-if='!reviewsLoading' class='no-revs'>Brak recenzji <br><i class='mdi mdi-emoticon-sad'></i></div>
+      </div>
+      <div class="dataloading" ng-if='reviewsLoading' layout-align='center center'>
+        <md-progress-circular ng-disabled="!reviewsLoading" class="md-yellow" md-diameter="100px"></md-progress-circular>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <md-button ng-click="close()" style="margin-right:20px;" >
+        Zamknij
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

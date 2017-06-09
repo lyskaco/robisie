@@ -1,0 +1,60 @@
+<div class="register">
+	<div class="register-container md-whiteframe-9dp" layout="column" >
+	<md-content   layout-padding layout-align="center center">
+		<h1>Zarejestruj się</h1>
+    <div>
+      <form name="register_user" novalidate>
+      <md-input-container class="" >
+        <label>Imię</label>
+        <input ng-model="register.first_name" type="text" required>
+          <div ng-messages="register_user.description.$error">
+          <div ng-message="required">To pole musi być wypełnione</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="" >
+        <label>Nazwisko</label>
+        <input ng-model="register.last_name" type="text" required>
+         <div ng-messages="register_user.description.$error">
+          <div ng-message="required">To pole musi być wypełnione</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="md-block" >
+        <label>Email</label>
+        <input ng-model="register.email" type="email" required>
+         <div ng-messages="register_user.description.$error">
+          <div ng-message="required">To pole musi być wypełnione</div>
+          <div ng-message="email">Wpisz prawidłowy email</div>
+        </div>
+      </md-input-container>
+       <md-input-container class="">
+        <label>Hasło</label>
+        <input ng-model="register.password" ng-minlength='8' type="password" required>
+         <div ng-messages="register_user.description.$error">
+          <div ng-message="md-minlength">Hasło musi zawierać conajmniej 8 znaków.</div>
+          <div ng-message="required">To pole musi być wypełnione</div>
+        </div>
+      </md-input-container>
+      <md-input-container class="">
+        <label>Powtórz hasło</label>
+        <input ng-model="register.password2" type="password" required>
+          <div ng-messages="register_user.description.$error">
+              <div ng-message="required">To pole musi być wypełnione</div>
+          </div>
+      </md-input-container>
+      <md-checkbox ng-model='TOS' aria-label='tos'>Akceptuję <a href="#rules">regulamin</a> serwisu</md-checkbox>
+      <md-button aria-label='register button' ng-disabled='!register.first_name || !register.last_name || !register.email || !register.password || !register.password2 || register.password !== register.password2 || !TOS' class='md-raised md-cornered' ng-click='register()' type="submit" >Zarejestruj</md-button>
+        <div class='message'>{{messageRegister}}</div>
+      	<div class="login-social">
+      		<span>albo</span>
+      		<md-button aria-label='facebook login' ng-disabled='!TOS' ng-click='facebookLogin()' class='md-cornered  md-raised'><i class="mdi mdi-facebook"></i></md-button>
+       		<md-button aria-label=' login' ng-disabled='!TOS' ng-click='googleLogin()' id='signin-button-register' class='md-cornered md-raised'><i class="mdi mdi-google-plus"></i></md-button>
+      	</div>
+       
+    </div>
+    	<span>Masz konto? </span><a href="#login">Zaloguj się</a>
+  </md-content>
+  </form>
+	</div>
+</div>
+
+<!-- ng-disabled="register_user.$invalid || !(register.first_name && register.last_name && register.email && register.password && register.password2) ||  register.password2!== register.password" -->

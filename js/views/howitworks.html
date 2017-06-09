@@ -1,0 +1,90 @@
+<section class="how-it-works" ng-class='{"becomeProChoice": choiceAction==="become", "hireProChoice": choiceAction==="hire"}'>
+	<div class="floating-contact">
+		<md-button class='md-fab md-mini' aria-label='Show Contact'  ng-click='contactBool=!contactBool;'>
+            <md-tooltip md-direction="bottom">Kontakt</md-tooltip>
+            <md-icon class='mdi mdi-telegram'></md-icon></md-button>
+        <md-button ng-show='choiceAction' class='md-fab md-mini' aria-label='Show Contact'  ng-click='choiceAction = (choiceAction==="become") ? "hire" : "become" '>
+            <md-tooltip md-direction="bottom"><span ng-if='choiceAction==="become"'>Zatrudnij specjalistę.</span><span ng-if='choiceAction==="hire"'>Zostań specjalistą.</span></md-tooltip>
+            <md-icon class='mdi mdi-autorenew'></md-icon>
+        </md-button>
+        <md-button class='md-fab md-mini ' aria-label='Rules'  ng-href='#rules'>
+            <md-tooltip md-direction="bottom">Regulaminy serwisu</md-tooltip>
+            <md-icon class='mdi mdi-exclamation rules'></md-icon></md-button>
+	</div>
+	<article class="become-pro">
+		<h1 ng-click='choiceAction="become"'>Zostań specjalistą!</h1>
+		<div class="content" ng-if='choiceAction==="become"'>
+			<div class="box">
+				<i class="mdi mdi-file-document
+"></i>
+				<h3>Wypełnij formularz</h3>
+				<p>Wypełnij swoje dane, zaznacz jakie umiejętności posiadasz i ile wynosi oczekiwana przez Ciebie stawka</p>
+			</div>
+			<div class="box">
+				<i class="mdi mdi-check-circle-outline"></i>
+				<h3>Weryfikacja</h3>
+				<p>Czekaj na naszą odpowiedź telefoniczną lub mailową w celu uzyskania więcej informacji.</p>
+				<p>Aby skrócić czas weryfikacji możesz bezpośrednio zgłosić się do nas</p>
+			</div>
+			<div class="box">
+				<i class="mdi mdi-puzzle"></i>
+				<h3>Akceptacja warunków</h3>
+				<p>Podpisz umowę i zarabiaj już tego samego dnia</p>
+			</div>
+		</div>
+	</article>
+	<article class="hire-pro">
+		<h1 ng-click='choiceAction="hire"'>Zatrudnij specjalistę!</h1>
+		<div class="content" ng-if='choiceAction==="hire"'>
+			<div class="box">
+				<i class="mdi mdi-target"></i>
+				<h3>Wybierz Zadanie</h3>
+				<p>Wybierz z listy obowiązków i wyślij ofertę. To pomoże nam znaleźć odpowiedniego
+fachowca w Twojej okolicy</p>
+			</div>
+			<div class="box">
+				<i class="mdi mdi-worker"></i>
+				<h3>Dopasuj fachowca</h3>
+				<p>Wybierz odpowiedni dla Ciebie czas. My połączymy Ciebie z fachowcem</p>
+			</div>
+			<div class="box">
+				<i class="mdi mdi-coffee"></i>
+				<h3>Zapłać i załatwione</h3>
+				<p>Ciesz się wolnym czasem i nie przepłacaj. Zarządzaj rezerwacją w naszym panelu -
+
+oceń fachowca, dokładny czas przyjazdu.</p>
+			</div>
+			<ul class="services-description">
+				<li><md-icon md-svg-src = '/svg/delivery-truck.svg' class='med'></md-icon><div><span>PRZEPROWADZKI</span>Planujesz przeprowadzkę? Potrzebne Ci dodatkowa para rąk do dźwigania ciężkich pudeł i mebli? Zatrudnij naszego fachowca, który sprawi, że Twoja przeprowadzka będzie o wiele łatwiejsza! </div></li>
+				<li><md-icon md-svg-src = '/svg/package.svg' class='med' ></md-icon><div><span>SKŁADANIE MEBLI</span>
+Dzięki portalowi RobiSię złożenie mebli do Twojego wymarzonego salonu lub sypialni nie będzie więcej problemem. Nie marnuj czasu i wynajmij fachowca, który sprawnie złoży Twoje meble, a Ty będziesz mógł cieszyć się komfortem i nowym wyposażeniem w Twoim domu.</div></li>
+				<li><md-icon md-svg-src = '/svg/trash.svg' class='med' ></md-icon><div><span>OGRODNIK</span>Jeśli brakuje Ci czasu i nie masz siły na zadbanie o swój ogród, to mamy dla Ciebie idealne rozwiązanie. Wynajmij jednego z naszych specjalistów, aby znowu cieszyć się pięknym, zielonym i wypielonym ogrodem.
+ </div></li>
+				<li><md-icon md-svg-src = '/svg/repair.svg' class='med' ></md-icon><div><span>ZŁOTA RĄCZKA</span>
+Skorzystaj z naszej opcji wynajęcia złotej rączki, która naprawi każdą drobną usterkę w twoim domu! Zapewnimy Ci profesjonalną pomoc, abyś nie musiał dłużej narzekać na zepsuty piekarnik, cieknący kran lub starą farbę na ścianach. </div></li>
+				<li><md-icon md-svg-src = '/svg/housekeeping.svg' class='med' ></md-icon><div><span>SPRZĄTANIE</span>
+Nie marnuj dłużej wolnych dni i weekendów na sprzątaniu całego mieszkania. Zatrudnij fachowca na naszej platformie, dzięki któremu twój dom zostanie szybko i dokładnie posprzątany, a ty będziesz mógł w końcu odpocząć i cieszyć się wolnym czasem. </div></li>
+				
+<!-- 
+
+
+
+
+
+
+ -->
+			</ul>
+		</div>
+	</article>
+	
+</section>
+<footer class="contact" ng-if='contactBool'>
+		<div class="wrapper">
+			<h2>Kontakt</h2>
+			<ul>
+				<li><i class="mdi mdi-phone"></i>577 389 498</li>
+				<li><i class="mdi mdi-email"></i>biuro@robisie.co</li>
+				<li><i class="mdi mdi-map-marker"></i><div><span>Dziadoszanska 10,</span> <br> 61-123 Poznań</div></li>
+			</ul>
+		</div>
+	</footer>

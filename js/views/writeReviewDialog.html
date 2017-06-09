@@ -1,0 +1,45 @@
+
+<md-dialog aria-label="write-review" class='writerev'>
+	<md-dialog-content>
+		<md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Napisz recenzję</h2>
+        <span flex></span>
+
+      </div>
+    </md-toolbar>
+	  <form ng-cloak name='forms.review' layout-align='space-around center' layout='row'>
+	  	<div class="text-inputs">
+	 		<md-input-container class='md-block'>
+	          <label>Tytuł wiadomości</label>
+	         	 <md-icon class='mdi mdi-account-box-outline md-icon' aria-label="review-content"></md-icon>
+		          <input ng-model="review.review_Title" type="text" required>
+		          <div ng-messages="forms.review.review.review_Title.$error">
+		            <div ng-message="required">Pole wymagane</div>
+		          </div>
+		    </md-input-container>
+		    <md-input-container class='md-block'>
+		        <label>Wiadomość</label>
+	          <md-icon class='mdi mdi-account-box-outline md-icon' aria-label="review-content"></md-icon>
+		          <textarea md-no-autogrow md-no-resize ng-model="review.review_Message" md-maxlength="150" rows="5" md-select-on-focus required></textarea>
+		          <div ng-messages="forms.review.review.review_Message.$error">
+		             <div ng-message="required">Pole wymagane</div>
+		          </div>
+	        </md-input-container>
+		</div>
+	        <md-slider-container>
+		      <md-input-container ng-init='review.ranking=100'>
+		        <input flex type="number" ng-model="review.ranking" aria-label="volume" aria-controls="volume-slider">
+		      </md-input-container>
+		      <md-slider ng-model="review.ranking" min="0" max="100" aria-label="volume" id="volume-slider" class="md-accent" md-vertical
+		                 md-range></md-slider>
+		      </md-slider>
+      			<h5>Ocena</h5>
+    		</md-slider-container>
+	  </form>
+	</md-dialog-content>
+		 <md-dialog-actions>
+	<md-button  class='md-cornered' ng-click="hideDialogReviews()">Zamknij</md-button>
+	<md-button  class='md-cornered md-raised' ng-disabled='!review.review_Message || !review.review_Title' ng-click="writeReview()">Wyślij recenzję</md-button>
+	</md-dialog-actions>
+</md-dialog>

@@ -1,0 +1,35 @@
+<div class="login">
+	<div class="login-container md-whiteframe-9dp" layout="column" >
+	<md-content   layout-padding layout-align="center center"
+
+>
+		<h1>Zaloguj się</h1>
+    <div>
+     <form name='login_form' novalidate>
+      <md-input-container class="md-block" >
+        <label>Email</label>
+        <input ng-model="login.email" name='login_email' type="email" required>
+          <div ng-messages="login_form.login_email.$error">
+          	<div ng-message="required">To pole musi być wypełnione</div>
+        </div>
+      </md-input-container>
+       <md-input-container class="md-block">
+        <label>Hasło</label>
+        <input ng-model="login.password" name='login_password' type="password" required>
+           <div ng-messages="login_form.login_password.$error">
+          		<div ng-message="required">To pole musi być wypełnione</div>
+        	</div>
+      </md-input-container>
+      <md-button aria-label='login button' class='md-raised md-cornered' ng-click='login()' type="submit" ng-disabled="login_form.$invalid || !login.email || !login.password">Zaloguj</md-button>
+        <span class='login-output'>{{loginMessage}}</span>
+      	<div class="login-social">
+      		<span>albo</span>
+      		<md-button aria-label='facebook login' ng-click='facebookLogin()' class='md-cornered  md-raised'><i class="mdi mdi-facebook"></i></md-button>
+       		<md-button aria-label='google login' ng-click='googleLogin()' id='signin-button' class='md-cornered md-raised'><i class="mdi mdi-google-plus"></i></md-button>
+      	</div>
+       </form>
+    </div>
+    	<span>Nie masz konta?</span><a href="#register">Zarejestruj się</a><span></span><a href="#iforgot">Zapomniałeś hasła?</a>
+  </md-content>
+	</div>
+</div>

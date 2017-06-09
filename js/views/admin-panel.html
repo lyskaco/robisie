@@ -1,0 +1,102 @@
+<div class="admin-panel">
+	 <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      	<md-nav-item md-nav-click="goto('complicated')" name="complicated"><span>Statusy skomplikowane</span></md-nav-item>
+     	<md-nav-item md-nav-click="goto('all-offers')" name="all-offers"><span>Wszystkie oferty</span></md-nav-item>
+     	<md-nav-item md-nav-click="goto('all-requests')" name="all-requests"><span>Znajdź zgłoszenie</span></md-nav-item>
+    </md-nav-bar>
+     <div class="ext-content">
+      <section class="complicated" ng-show='currentNavItem==="complicated"'>
+      		<h2>Statusy skomplikowane: pojawiają się w momencie kiedy klient zgłosi, że specjalista nie stawił się w wyznaczonym miejscu, mimo, że sam zaznaczył, że praca została wykonana.</h2>
+      		<article class="complicated-container">
+      			<div class="request md-whiteframe-8dp"  ng-repeat='req in complicatedRequests' class="md-whiteframe-2dp">
+      				<ul>
+      					<li><span>ID: </span> {{req.id_Request}}</li>
+						<li><span>Status: </span> {{req.status_request}}</li>
+						<li><span>Rodzaj usługi: </span>{{req.professional_field_request}}</li>
+						<li><span>Data rozpoczecia usługi: </span>{{req.start_time_resquest | date: 'dd/MM/yy HH:mm '}}</li>
+						<li><span>Data rozpoczecia usługi: </span>{{req.end_time_request | date: 'dd/MM/yy HH:mm '}}</li>
+						<li><span>Imię specjalisty: </span>{{req.l_name_professional}}</li>
+						<li><span>Nazwisko specjalisty: </span>{{req.f_name_professional}}</li>
+						<li><span>Email specjalisty: </span>{{req.email_professional}}</li>
+						<li><span>Telefon specalisty: </span>{{req.phone_professional}}</li>
+						<li><span>Czas trwania usługi: </span>{{req.job_duration_request}}</li>
+						<li><span>Opłata uiszczona przez klienta: </span>{{req.price_request}}</li>
+						<li><span>Czas złożenia zamówienia: </span>{{req.request_timeStamp}}</li>
+						<li><span>Imie klienta: </span>{{req.f_name_costumer}}</li>
+						<li><span>Nazwisko klienta: </span>{{req.l_name_costumer}}</li>
+						<li><span>Telefon klienta: </span>{{req.phone_costumer}}</li>
+						<li><span>Adres klienta: </span>{{req.address_costumer}}</li>
+						<li><span>Email klienta: </span>{{req.email_costumer}}</li>
+      				</ul>
+              <div class="buttoncontainer" layout='column' layout-align='center center'>
+        				<md-button flex='100' class='md-raised md-cornered md-accent' ng-click='setResolved(req)'>zmień status na "resolved"</md-button>
+        				<md-button flex='100' class='md-raised md-cornered md-accent' ng-click='setRefund(req)'>zwrot pieniedzy dla klienta</md-button>
+              </div>
+
+      			</div>
+      		</article>
+      </section>
+      <section class="all-offers" ng-show='currentNavItem==="all-offers"'>
+      		<h2>Wykaz wszystkich ofert specjalistów.</h2>
+      		<div class="filter-bar">
+          <md-input-container  flex='80'>
+            <label>Filtruj</label>
+            <md-select ng-model="offersType">
+              <md-option value=''>
+                Wszystkie
+              </md-option>
+              <md-option value='verified'>
+            	Zweryfikowane
+              </md-option>
+              <md-option value='notverified'>
+            	Niezweryfikowane
+              </md-option>
+              <md-option value='asd'>
+              asd
+              </md-option>
+
+            </md-select>
+          </md-input-container>
+			<md-input-container class='md-block'>
+			<label>Filtr: imie/nazwisko/id</label>
+		        <input ng-model="searchFilter" type="text" >
+			</md-input-container>
+          <article class="offers">
+          	<div class="offer md-whiteframe-2dp" ng-repeat='offer in offers | filter: searchFilter | filter: {Verified: offersType}' ng-click="showDialogOffer($event, offer)" ng-class='{offerVerified: offer.Verified === "verified", offerNotVerified: offer.Verified === "notverified"}'>
+          		<p>{{offer.professional_fname}} {{offer.professional_lname}}</p>
+          		<p>ID: {{offer.offer_Id}}</p>
+          	</div>
+          </article>
+        </div>
+      </section>
+      <section class="all-requests" ng-show='currentNavItem==="all-requests"'>
+      		<h2>Podaj id zgłoszenia, żeby uzyskać informacje na jego temat.</h2>
+      		<md-input-container class='md-block'>
+			<label>ID zgłoszenia</label>
+		        <input ng-model="idRequest" type="text">
+			</md-input-container>
+			<md-button class='md-raised md-cornered' ng-disabled='!idRequest' ng-click='getSingleRequest()'>SZUKAJ</md-button>
+      <div class="request md-whiteframe-8dp" ng-show='singleRequest'>
+        <ul>
+            <li><span>ID: </span> {{singleRequest.id_Request}}</li>
+            <li><span>Status: </span> {{singleRequest.status_request}}</li>
+            <li><span>Rodzaj usługi: </span>{{singleRequest.professional_field_request}}</li>
+            <li><span>Data rozpoczecia usługi: </span>{{singleRequest.start_time_resquest | date: 'dd/MM/yy HH:mm '}}</li>
+            <li><span>Data rozpoczecia usługi: </span>{{singleRequest.end_time_request | date: 'dd/MM/yy HH:mm '}}</li>
+            <li><span>Imię specjalisty: </span>{{singleRequest.l_name_professional}}</li>
+            <li><span>Nazwisko specjalisty: </span>{{singleRequest.f_name_professional}}</li>
+            <li><span>Email specjalisty: </span>{{singleRequest.email_professional}}</li>
+            <li><span>Telefon specalisty: </span>{{singleRequest.phone_professional}}</li>
+            <li><span>Czas trwania usługi: </span>{{singleRequest.job_duration_request}}</li>
+            <li><span>Opłata uiszczona przez klienta: </span>{{singleRequest.price_request}}</li>
+            <li><span>Czas złożenia zamówienia: </span>{{singleRequest.request_timeStamp}}</li>
+            <li><span>Imie klienta: </span>{{singleRequest.f_name_costumer}}</li>
+            <li><span>Nazwisko klienta: </span>{{singleRequest.l_name_costumer}}</li>
+            <li><span>Telefon klienta: </span>{{singleRequest.phone_costumer}}</li>
+            <li><span>Adres klienta: </span>{{singleRequest.address_costumer}}</li>
+            <li><span>Email klienta: </span>{{singleRequest.email_costumer}}</li>
+          </ul>
+        </div>
+      </section>
+      </div>
+</div>

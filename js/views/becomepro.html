@@ -1,0 +1,327 @@
+<div class="becomepro-container">
+<md-content class="">
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="goto('page1')" name="page1"><md-icon hide-gt-xs class='mdi mdi-account-edit'></md-icon><span hide-xs>Moje konto</span> 
+      <md-tooltip hide-gt-xs md-direction="bottom">Moje konto</md-tooltip></md-nav-item>
+      <md-nav-item md-nav-click="goto('page2')" name="page2"><md-icon hide-gt-xs class='mdi mdi-screwdriver'></md-icon><span hide-xs>Panel specjalisty</span> <md-tooltip hide-gt-xs md-direction="bottom">Panel specjalisty</md-tooltip></md-nav-item>
+      <md-nav-item md-nav-click="goto('page3')" name="page3"><md-icon hide-gt-xs class='mdi mdi-history'></md-icon><span hide-xs>Historia zamówień</span><md-tooltip hide-gt-xs md-direction="bottom">Historia zamówień</md-tooltip><span ng-show='pendingCounter>0'class="label">{{pendingCounter}}</span></md-nav-item>
+      <!-- these require actual routing with ui-router or ng-route, so they won't work in the demo
+      <md-nav-item md-nav-sref="app.page4" name="page4">Page Four</md-nav-item>
+      <md-nav-item md-nav-href="#page5" name="page5">Page Five</md-nav-item>
+      -->
+    </md-nav-bar>
+    <div class="ext-content">
+      <section class="account" ng-show='currentNavItem==="page1"'>
+        <article class="credentials">
+           <md-card>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{user.f_name}} {{user.lname}}</span>
+            <span class="md-subhead">Ulica: {{user.address}}</span>
+            <span class="md-subhead">Telefon: {{user.phone}}</span>
+            <span class="md-subhead">Email: {{user.email}}</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media">
+              <img ng-if='user.picture' ng-src='{{user.picture}}' alt="" ng-click='updatePhoto'>
+              <img ng-if='!user.picture' ng-src="/img/user.png" alt="">
+            </div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-fab fab-accent" aria-label="Edytuj dane" ng-click='editDataDialog($event)'>
+          <md-tooltip md-direction="left">Zmień dane</md-tooltip>
+          <md-icon class='mdi mdi-account-edit'></md-icon>
+        </md-button>
+        </md-card-actions>
+      </md-card>
+        </article>
+      </section>
+      <section class="professional-panel" ng-show='currentNavItem==="page2"'>
+
+            <md-fab-toolbar md-direction="right">
+              <md-fab-trigger class="align-with-text">
+                <md-button aria-label="menu" class="md-fab coping-with-shit">
+                  <md-icon class="mdi mdi-menu"></md-icon>
+                </md-button>
+              </md-fab-trigger>
+
+              <md-toolbar>
+                <md-fab-actions class="md-toolbar-tools">
+                  <md-button aria-label="add" class="" ng-click='addOfferTrigger()' ng-disabled='user.professional_description || !user.phone || !user.picture'>
+
+                    <md-icon class='mdi mdi-plus'></md-icon><span hide-xs>Dodaj ofertę</span>
+
+                  </md-button>
+                  <md-button aria-label="edit" class="" ng-click='editOfferTrigger()' ng-disabled='!user.professional_description'>
+                    <md-icon class='mdi mdi-eye-outline'></md-icon><span hide-xs>Moja oferta</span>
+                  </md-button>
+                  <md-button ng-click='showConfirm($event)' aria-label="delete" ng-disabled='!user.professional_description'>
+                    <md-icon class='mdi mdi-delete'></md-icon><span hide-xs>Usuń ofertę</span>
+                  </md-button>
+                </md-fab-actions>
+              </md-toolbar>
+            </md-fab-toolbar>
+        <article>
+          
+            <div ng-cloak class="missing-data md-whiteframe-2dp" ng-show='!user.phone || !user.picture' ng-if='!dataLoading'>
+              <h3>Przed dodaniem oferty uzupełnij następujące dane:</h3>
+                  <span ng-if='!user.phone'>Numer telefonu</span>
+                  <span ng-if='!user.picture'>Zdjęcie profilowe</span>
+            </div>
+            <div ng-show='dataLoading' class="dataloading">
+              <md-progress-circular ng-disabled="!dataLoading" class="md-yellow" md-diameter="100px"></md-progress-circular></div>
+            <div class="add-offer md-whiteframe-2dp" ng-show='addOffer===true'>
+            <form name='forms.add_offer'>
+                
+                <div class="step-one" ng-show='addOfferStep===0'>
+                  <h2>Dodaj ofertę</h2>
+                  <div class="wrapper">
+                    <p>
+                      Wypełnij poniższy formularz. Po wysłaniu informacji, skontaktujemy się z Tobą w celu weryfikacji.
+                    </p>
+                  <fieldset>
+                   <legend>Wybierz umiętności</legend>
+                    <div layout="row" layout-wrap flex>
+                      <div flex="50" flex-gt-sm='30' ng-repeat="item in fields" >
+                        <md-checkbox ng-click="toggle(item, addoffer.fieldsSelected)" aria-label='skills'>
+                          <span ng-if="item==='cleaning'">Sprzątanie</span>
+                          <span ng-if="item==='moving'">Przeprowadzki</span> 
+                          <span ng-if="item==='assembly'">Składanie mebli</span> 
+                          <span ng-if="item==='gardening'">Ogrodnik</span> 
+                          <span ng-if="item==='handyman'">Złota rączka</span> 
+                        </md-checkbox >
+                      </div>
+                    </div>
+                </fieldset>
+                <fieldset class="md-padding">
+                   <legend>Dostępność w tygodniu</legend>
+                    <div layout="row" layout-wrap flex>
+                      <div flex="50" flex-gt-sm='30' ng-repeat="item in days">
+                        <md-checkbox ng-click="toggle(item, addoffer.daysSelected)"  aria-label='availability'>
+                          <span ng-if="item==='monday'">Poniedziałek</span>
+                          <span ng-if="item==='tuesday'">Wtorek</span> 
+                          <span ng-if="item==='wednesday'">Środa</span> 
+                          <span ng-if="item==='thursday'">Czwartek</span> 
+                          <span ng-if="item==='friday'">Piątek</span> 
+                          <span ng-if="item==='saturday'">Sobota</span> 
+                          <span ng-if="item==='sunday'">Niedziela</span> 
+                        </md-checkbox >
+                      </div>
+                    </div>
+                </fieldset>
+                  <md-button ng-disabled='addoffer.fieldsSelected.length<1' ng-click='addOfferStep=addOfferStep+1'>Dalej</md-button>
+                  </div>
+              
+                
+                </div>
+                <div class="step-two" ng-show='addOfferStep===1'>
+                  <h2>Kontynuuj</h2>
+                  <div class="wrapper">
+                  <div class="pricesField md-whiteframe-2dp" layout="column" layout-align="start start">
+
+                    <md-input-container ng-repeat='fieldName in addoffer.fieldsSelected'>
+
+                    <label>Oczekiwana stawka za godzinę:  
+                          <span ng-if='fieldName === "cleaning"'>Sprzątanie</span>
+                          <span ng-if='fieldName === "moving"'>Przeprowadzki</span>
+                          <span ng-if='fieldName === "assembly"'>Składanie mebli</span>
+                          <span ng-if='fieldName === "handyman"'>Złota rączka</span>
+                          <span ng-if='fieldName === "gardening"'>Ogrodnik</span>
+                    </label>
+
+                      <input min="1" step="1" ng-if='fieldName === "cleaning"' ng-model="addoffer.price.cleaning" type="number" name='add_offer_price' required>
+                      <input min="1" step="1" ng-if='fieldName === "moving"' ng-model="addoffer.price.moving" type="number" name='add_offer_price' required>
+                      <input min="1" step="1" ng-if='fieldName === "assembly"' ng-model="addoffer.price.assembly" type="number" name='add_offer_price' required>
+                      <input min="1" step="1" ng-if='fieldName === "handyman"' ng-model="addoffer.price.handyman" type="number" name='add_offer_price' required>
+                      <input min="1" step="1" ng-if='fieldName === "gardening"' ng-model="addoffer.price.gardening" type="number" name='add_offer_price' required>
+                      <div ng-messages="forms.add_offer.addoffer.price.$error">
+                         <div ng-message="required">Pole wymagane</div>
+                      </div>
+                    </md-input-container>
+                </div>
+                    <md-input-container class="md-block">
+                      <label>Numer konta bankowego</label>
+                      <md-icon class='mdi mdi-counter md-icon' aria-label="counter "></md-icon>
+                      <input min="1" step="1" ng-model="addoffer.account_number" type="number" name='add_offer_account' required>
+                      <div ng-messages="forms.add_offer.addoffer.account_number.$error">
+                         <div ng-message="required">Pole wymagane</div>
+                      </div>
+                    </md-input-container>
+                  <md-input-container class="md-block">
+                    <label>O mnie</label>
+                      <md-icon class='mdi mdi-account-box-outline md-icon' aria-label="counter "></md-icon>
+                      <textarea md-no-autogrow md-no-resize ng-model="addoffer.about" md-maxlength="150" rows="5" md-select-on-focus required></textarea>
+                      <div ng-messages="forms.add_offer.addoffer.about.$error">
+                         <div ng-message="required">Pole wymagane</div>
+                      </div>
+                    </md-input-container>
+                    <div class="asterisk">
+                      <span> * </span> Pola wymagane
+                    </div>
+                    <md-input-container class="md-block md-padding">
+                      <md-checkbox ng-model="isAccepted" aria-label="rules" >
+                        Zamieszczając ofertę akceptuję <a ng-href="#rules">regulamin</a>
+                      </md-checkbox>
+                    </md-input-container>
+                    <md-button ng-click='addOfferStep=addOfferStep-1'>Wróć</md-button>
+                    <md-button class='md-raised md-cornered' ng-disabled='fieldsSelected.length<1 || daysSelected.length<1 || !addoffer.price || !addoffer.about || !isAccepted || !addoffer.account_number' ng-click='uploadOffer()'>Dodaj ofertę</md-button>
+                    <span class="message" ng-show='addOfferMessage'>{{addOfferMessage}}</span>
+                  </div>     
+             
+                </div>
+            </div>
+            </form>
+            <div class="edit-offer md-whiteframe-2dp " ng-show='editOffer===true'>
+              <h2>Moja oferta</h2>
+              <div class="wrapper">
+                  <ul>
+                    <li>Oczekiwana stawka: <div class="container-icons"><br>
+                      <span ng-if='user.price.cleaning'>
+                        <md-icon md-svg-src = '/svg/housekeeping.svg' class='med' ></md-icon>Sprzątanie: {{user.price.cleaning}} PLN</span>
+                      <span ng-if='user.price.moving'>
+                      <md-icon md-svg-src = '/svg/delivery-truck.svg' class='med' ></md-icon>Przeprowadzki: {{user.price.moving}} PLN</span>
+                      <span ng-if='user.price.assembly'>
+                      <md-icon md-svg-src = '/svg/package.svg' class='med' ></md-icon>
+                      Składanie mebli: {{user.price.assembly}} PLN</span>
+                      <span ng-if='user.price.handyman'>
+                      <md-icon md-svg-src = '/svg/repair.svg' class='med' ></md-icon>Złota rączka: {{user.price.handyman}} PLN</span>
+                      <span ng-if='user.price.gardening'><md-icon md-svg-src = '/svg/trash.svg' class='med' ></md-icon>Ogrodnik: {{user.price.gardening}} PLN</span></div>
+                    </li>
+                    <li>Dostępność w tygodniu: <br> <div ng-repeat='field in user.professional_availability_week' class="weekdays">
+                      <span ng-if='field === "monday"'>Poniedziałek</span>
+                      <span ng-if='field === "tuesday"'>Wtorek</span>
+                      <span ng-if='field === "wednesday"'>Środa</span>
+                      <span ng-if='field === "thursday"'>Czwartek</span>
+                      <span ng-if='field === "friday"'>Piątek</span>
+                      <span ng-if='field === "saturday"'>Sobota</span>
+                      <span ng-if='field === "sunday"'>Niedziela</span>
+                    </div> </li>
+                    <li>O mnie: <span>{{user.professional_description}}</span></li>
+                    <li>Ocena użytkowników: 
+                      <span ng-if='user.professional_ranking'>{{user.professional_ranking}}</span>
+                      <span ng-if='!user.professional_ranking'>Brak oceny</span>
+                    </li>
+                  </ul>              
+              </div>
+               
+            </div>
+        </article>
+      </section>
+       <section class="request-received" ng-show='currentNavItem==="page3"'>
+        <div class="filter-bar">
+          <md-input-container  flex='80'>
+            <label>Filtruj</label>
+            <md-select ng-model="requestFilter">
+              <md-option value=''>
+                Wszystkie
+              </md-option>
+              <md-option value="completed">
+                Wykonane
+              </md-option>
+               <md-option value="pending">
+                Oczekujące
+              </md-option>
+               <md-option value="accept">
+                Zaakceptowane
+              </md-option>
+              <md-option value="reject">
+                Odrzucone
+              </md-option>
+               <md-option value="complicated">
+                Skomplikowane
+              </md-option>
+              <md-option value="resolved">
+                Zakończone
+              </md-option>
+
+            </md-select>
+          </md-input-container>
+        </div>
+        <div class="no-request" ng-if='!requests'>Brak zgłoszeń</div>
+        <div class="request" ng-repeat='request in requests | filter: requestFilter | orderBy: timestamp_request: true' ng-class='{requestdisabled: request.status_request==="reject", request_completed: request.status_request==="completed", request_complicated: request.status_request==="complicated" }'>
+          <div class="info md-whiteframe-2dp">
+             <div class="decoration">
+                <i class="mdi mdi-information-outline"></i>
+            </div>
+            <ul class="review-container md-whiteframe-2dp" ng-show='toggleFilterShow[$index]'>
+               <li><span>Tytuł: </span>{{request.review[0].review_Title}}</li>
+               <li><span>Wiadomość: </span>{{request.review[0].review_Message}}</li>
+               <li><span>Ocena: </span>{{request.review[0].ranking}}</li>
+            </ul>
+            <ul class="prof-data" ng-show='!toggleFilterShow[$index]'>
+              <h5>Informacje: </h5>
+              <li><b>ID:</b> {{request.id_Request}}</li>
+              <li><b>Data dodania: </b> {{request.timestamp_request | date: 'dd/MM/yy HH:mm '}}</li>
+              <li><b>Status:</b>
+              <span ng-if='request.status_request==="resolved"'>Zakończone</span>
+               <span ng-if='request.status_request==="pending"'>Opłacone, oczekiwanie na zgodę specjalisty</span>
+               <span ng-if='request.status_request==="accept"'>Zaakceptowane przez specjalistę</span>
+               <span ng-if='request.status_request==="completed"'>Zlecenie wykonane<span ng-if='request.isReview_Written==="0"'>, klient nie napisał jeszcze recenzji.</span><span ng-if='request.isReview_Written==="1"'>, recenzja została napisana.</span></span>
+               <span ng-if='request.status_request==="complicated"'>Klient zaznaczył, że zadanie nie zostało wykonane. Poczekaj na nasz kontakt.</span>
+               <span ng-if='request.status_request==="donePro"'>Zatwierdzenie wykonania zadania przez specjalistę</span>
+               <span ng-if='request.status_request==="notDonePro"'>Zlecenie nie zostało wykonane przez specjalistę</span>
+               <span ng-if='request.status_request==="reject"' class="i-warn">Zlecenie odrzucone</span>
+              </li>
+
+              <li><b>Rodzaj usługi:</b><span ng-if='request.professional_field_request === "cleaning"'>Sprzątanie</span>
+                    <span ng-if='request.professional_field_request === "moving"'>Przeprowadzki</span>
+                    <span ng-if='request.professional_field_request === "assembly"'>Składanie mebli</span>
+                    <span ng-if='request.professional_field_request === "handyman"'>Złota rączka</span>
+                    <span ng-if='request.professional_field_request === "gardening"'>Ogrodnik</span></li>
+              <li><b>Cena:</b> {{request.price_request}}zł</li>
+             </ul>
+            <div class="acceptOfferContainer">
+            <md-button class='md-fab md-mini accept' aria-label='accept offer' ng-hide='request.status_request!=="pending"' ng-disabled='request.status_request!=="pending"' ng-click='answerOffer(request, "reject")'>
+              <md-tooltip md-direction="left">Odrzuć ofertę</md-tooltip>
+            <md-icon class='mdi mdi-close'></md-icon></md-button>
+             <md-button class='md-fab md-mini reject' aria-label='accept offer' ng-hide='request.status_request!=="pending"' ng-disabled='request.status_request!=="pending"' ng-click='answerOffer(request, "accept")'>
+              <md-tooltip md-direction="left">Akceptuj ofertę</md-tooltip>
+            <md-icon class='mdi mdi-check'></md-icon></md-button>
+          </div>
+            
+            <div class="confirmDoneContainer" ng-hide='request.status_request!=="accept" || request.end_time_request>nowDate'>
+             <md-button class='md-fab md-mini accept' aria-label='accept offer' ng-disabled='request.status_request!=="accept"' ng-click='confirmDone(request, "notDonePro")'>
+              <md-tooltip md-direction="left">Zlecenie niewykonane</md-tooltip>
+            <md-icon class='mdi mdi-close'></md-icon></md-button>
+
+             <md-button class='md-fab md-mini reject' aria-label='accept offer' ng-disabled='request.status_request!=="accept"' ng-click='confirmDone(request, "donePro")'>
+            <md-tooltip md-direction="left">Zlecenie wykonane</md-tooltip>
+            <md-icon class='mdi mdi-check'></md-icon></md-button>
+          </div>
+          <div class="showReviewContainer" ng-show='request.status_request==="completed" && request.isReview_Written === "1"'>
+              <md-button class='md-fab md-mini accept' aria-label='accept offer' ng-click='filterReviews(request, request.id_Request); toggleFilterShow[$index]=!toggleFilterShow[$index]'>
+              <md-tooltip md-direction="left">Pokaż recenzję</md-tooltip>
+              <md-icon class='mdi mdi-file-document-box'></md-icon></md-button>
+          </div>
+          </div>
+           <div class="time md-whiteframe-2dp">
+              <div class="decoration">
+                <i class='mdi mdi-calendar-clock'></i>
+              </div>
+              <ul>
+                <h5>Czas: </h5>
+                <li><b>Data rozpoczęcia usługi:</b> <span>{{request.start_time_resquest | date:'dd/MM/yy HH:mm '}} </span></li>
+                <li><b>Data zakończenia usługi:</b> <span>{{request.end_time_request | date:'dd/MM/yy HH:mm '}} </span></li>
+                <li><b>Czas trwania usługi:</b> <span>{{request.job_duration_request}}h</span></li>
+              </ul>
+             
+            </div>
+            <div class="professional-info md-whiteframe-2dp">
+               <div class="decoration">
+                  <i class="mdi mdi-cart"></i>
+                </div>
+                <ul class="prof-data">
+                  <h5>Dane klienta: </h5>
+                  <li><i class="mdi mdi-account-circle"></i>{{request.f_name_costumer}} {{request.l_name_costumer}}</li>
+                  <li><i class="mdi mdi-email"> </i>{{request.email_costumer}}</li>
+                  <li><i class="mdi mdi-phone"> </i> {{request.phone_costumer}}</li>
+                  <li><i class="mdi mdi-map-marker"> </i> {{request.address_costumer}}</li>
+                </ul>
+            </div>
+        </div>
+      
+    </section>
+    </div>
+  </md-content>
+  </div>

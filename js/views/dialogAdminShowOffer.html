@@ -1,0 +1,51 @@
+<md-dialog aria-label="edit data" class='admin-show-offer'>
+ <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Dane specjalisty</h2>
+        <span flex></span>
+
+      </div>
+    </md-toolbar>
+	<md-dialog-content>
+    <ul>
+        <li>Imię i nazwisko: {{offer.professional_fname}} {{offer.professional_lname}}</li>
+        <li>Opis: {{offer.professional_description}}</li>
+        <li>Dostępność w tygodniu: 
+        <span ng-repeat='item in offer.professional_availability_week'>
+          <span ng-if="item==='monday'">Poniedziałek</span>
+          <span ng-if="item==='tuesday'">Wtorek</span> 
+          <span ng-if="item==='wednesday'">Środa</span> 
+          <span ng-if="item==='thursday'">Czwartek</span> 
+          <span ng-if="item==='friday'">Piątek</span> 
+          <span ng-if="item==='saturday'">Sobota</span> 
+          <span ng-if="item==='sunday'">Niedziela</span> 
+        </span></li>
+        <li> Umiejetnosci: <span ng-repeat='item in offer.professional_field'>
+        <span ng-if="item==='cleaning'">Sprzątanie</span>
+        <span ng-if="item==='moving'">Przeprowadzki</span> 
+        <span ng-if="item==='assembly'">Składanie mebli</span> 
+        <span ng-if="item==='gardening'">Ogrodnik</span> 
+        <span ng-if="item==='handyman'">Złota rączka</span> 
+          </span>
+        </li>
+        <li>Data utworzenia oferty: {{offer.timeStamp}}</li>
+         <li>Ocena: {{offer.professional_ranking}}</li>
+        <li>Zweryfikowany?: {{offer.Verified}}</li>
+    </ul>
+	</md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="delete()" style="margin-right:20px;">
+          Usuń ofertę
+      </md-button>
+      <md-button ng-if='offer.Verified==="verified"' ng-click="verify('notverified')" style="margin-right:20px;" >
+        Odweryfikuj
+      </md-button>
+      <md-button ng-if='offer.Verified==="notverifed"' ng-click="verify('verified')" style="margin-right:20px;" >
+        Zweryfikuj
+      </md-button>
+      <md-button ng-click="close()" style="margin-right:20px;" >
+        Zamknij
+      </md-button>
+    </md-dialog-actions>
+</md-dialog>

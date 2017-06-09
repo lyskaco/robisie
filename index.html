@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="google-site-verification" content="msgEz909FIRBEvaFD2ylsslMTKTLFugbFgG9avYjFoQ" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name='description' content='Platforma umożliwiająca wynajmowanie specjalistów do prostych domowych prac.'>
+	<meta name='keywords' content="złota rączka, praca, dom, zakupy, sprzątanie, składanie mebli, warszawa, przeprowadzki, robi, sie, praca, zadania, zlecenia, specjalista">
+	<meta name='author' content="Jędrzej Iwanicki, Muhammed Elkheir">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-signin-scope" content="profile email">
+	<meta name="google-signin-client_id" content="266563875998-fqfesenrm4lmhqb14e82n4fe24nrrumc.apps.googleusercontent.com">
+	<link rel="alternate" hreflang="pl" href="https://robisie.co/" />
+ 	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+ 	<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&amp;subset=latin-ext" rel="stylesheet">
+ 	<link href="https://fonts.googleapis.com/css?family=Work+Sans:800,900&amp;subset=latin-ext" rel="stylesheet">
+ 	<link rel="stylesheet" href="//cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css">
+ 	<link rel="stylesheet" href="https://cdn.rawgit.com/alenaksu/mdPickers/0.7.4/dist/mdPickers.min.css">
+ 	<link rel="stylesheet" href="css/style.css">
+ 	<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+	
+	<script src="//apis.google.com/js/platform.js?onload=initClient" async defer></script>
+ 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+ 	<script src="//cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+ 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	<script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js'></script>
+	<script src='//cdn.rawgit.com/alenaksu/mdPickers/0.7.4/dist/mdPickers.min.js'></script>
+	<script src='node_modules/angularjs-livechat/angularjs-livechat.min.js'></script>
+
+	<script src='https://s3-us-west-2.amazonaws.com/popmotion/assets/js/6.0.19/popmotion.global.min.js'></script>
+	<script src='js/script.js'></script>
+	<script src='js/controllers/navbarCtrl.js'></script>
+	<script src='js/controllers/greetingsCtrl.js'></script>
+	<script src='js/controllers/loginCtrl.js'></script>
+	<script src='js/controllers/registerCtrl.js'></script>
+	<script src='js/services/facebookLogin.js'></script>
+	<script src='js/controllers/memberCtrl.js'></script>
+	<script src='js/controllers/hireproCtrl.js'></script>
+	<script src='js/controllers/becomeproCtrl.js'></script>
+	<script src='js/controllers/dialogReviewCtrl.js'></script>
+	<script src='js/controllers/dialogWriteReviewCtrl.js'></script>
+	<script src='js/controllers/dialogEditDataCtrl.js'></script>
+	<script src='js/controllers/dialogBookProCtrl.js'></script>
+	<script src='js/controllers/howitworksCtrl.js'></script>
+	<script src='js/controllers/paymentCtrl.js'></script>
+	<script src='js/controllers/passwordforgotCtrl.js'></script>
+	<script src='js/controllers/adminpanelCtrl.js'></script>
+	<script src='js/controllers/dialogAdminShowOfferCtrl.js'></script>
+	
+	<title>Robi się</title>
+
+</head>
+<body ng-app='myApp'>
+	<nav ng-cloak ng-controller='navbarCtrl' class='md-whiteframe-2dp main-navbar' layout="row"  layout-align="space-between center">
+		<h1><a ng-href="#hello">robi<b>się</b>.<span ng-if='sessionStorage.adminAccess'>admin</span></a></h1>
+		<ul>
+			<li><md-button class=' md-cornered' ng-href="#howitworks"><md-icon hide-gt-xs class='mdi mdi-lightbulb-on'></md-icon><span hide-xs>Jak to działa?</span></md-button></li>
+			<li><md-button ng-href='#member' class=' md-cornered' ng-show='sessionStorage.user'><md-icon hide-gt-xs class='mdi mdi-account'></md-icon><span hide-xs>Moje konto</span></md-button></li>			
+			<li><md-button class=' md-cornered' ng-href="#login" ng-hide='sessionStorage.user'>
+			<md-icon hide-gt-xs class='mdi mdi-account-key'></md-icon><span hide-xs>Zaloguj</span></md-button></li>
+			<li><md-button ng-click='facebookLogout()' class=' md-cornered' ng-show='sessionStorage.user'><md-icon hide-gt-xs class='mdi mdi-logout'></md-icon><span hide-xs>Wyloguj</span></md-button></li>
+		</ul>
+	</nav>
+	<div class="container appMainClass" ng-view ng-class='{dialogOn: blurTrigger}'>
+<!--	<livechat license="8730781"></livechat>	 -->	
+	</div>
+	    </div>
+    <!-- Start of LiveChat (www.livechatinc.com) code -->
+<!-- <script type="text/javascript">
+window.__lc = window.__lc || {};
+window.__lc.license = 8730781;
+(function() {
+  var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+  lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script> -->
+<!-- End of LiveChat code -->
+</body>
+
+<script>
+	
+  	var auth2;
+
+/**
+ * Initializes the Sign-In client.
+ */
+
+var onSuccess = function(user) {
+    console.log('Signed in as ' + user.getBasicProfile().getName());
+ };
+
+/**
+ * Handle sign-in failures.
+ */
+var onFailure = function(error) {
+    console.log(error);
+};
+
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-92922131-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+ <script>
+    (function(c,u,x,i,o){
+        c._cuxSettings=c._cuxSettings||{id:o};
+        var e=u.createElement(x),t=u.getElementsByTagName(x)[0];
+        e.src=i;e.async=true;t.parentNode.insertBefore(e,t);
+    })(window, document, 'script', '//dc.cux.io/analyzer.js?' + Date.now(), '458196334.0.10855300.1491209456.58e20cf01a848');
+</script> 
+</html>

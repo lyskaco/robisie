@@ -1,0 +1,161 @@
+<md-dialog aria-label="book pro" class='book-pro'>
+	 <md-dialog-content>
+		<h1>Podsumowanie</h1>
+		<div class="professional-summary ">
+			<h2>Informacje o rezerwacji.</h2>
+			<ul class="md-whiteframe-2dp">
+				<li><span>Imię i nazwisko specjalisty:</span> <span> {{offer.professional_fname }} {{offer.professional_lname | limitTo : 1}} </span></li>
+				<li>
+					<span>Usługa:</span>
+				 	<span ng-if='mySchedule.field === "cleaning"'>Sprzątanie</span>
+                    <span ng-if='mySchedule.field === "moving"'>Przeprowadzki</span>
+                    <span ng-if='mySchedule.field === "assembly"'>Składanie mebli</span>
+                    <span ng-if='mySchedule.field === "handyman"'>Złota rączka</span>
+                    <span ng-if='mySchedule.field === "gardening"'>Ogrodnik</span>
+				</li>
+				<li>
+					<span>Cena:</span> <span>{{priceSummary}} PLN</span>
+				</li>
+				<li><span>Data wizyty:</span> <span> {{mySchedule.startTime | date:'dd/MM/yy HH:mm' }}</span></li>
+				<li><span>Długość wizyty:</span> <span> {{mySchedule.duration}} h.</span></li>
+			</ul>
+				<div class="no-professional-info" ng-show='!user.address || !user.phone'>
+					<form name='forms.missing_data' class='md-whiteframe-2dp' novalidate>
+						<h2>Podaj brakujące dane:</h2>
+	                    <md-input-container class="md-block" flex='100' flex-gt-sm='50'>
+	                      <label>Telefon</label>
+	                      <input ng-model="missingTelephone" type="tel" required pattern="\d*">
+	                      <div ng-messages="forms.missing_data.missingTelephone.$error">
+	                        <div ng-message="required">Pole wymagane</div>
+	                        <div ng-message="pattern">Pole musi zawierać liczby!</div>
+	                      </div>
+	                    </md-input-container>
+
+	                    <md-input-container class="md-block" flex='100' flex-gt-sm='50'>
+	                      <label>Adres</label>
+	                      <input ng-model="missingAddress" type="text" required>
+	                      <div ng-messages="forms.missing_data.missingAddress.$error">
+	                        <div ng-message="required">Pole wymagane</div>
+	                      </div>
+	                    </md-input-container>
+
+                  </form>
+				</div>
+				
+				<md-checkbox ng-show='user.address || user.phone' ng-model="wantToChange" aria-label="modify data" class='md-block'>
+                    Chcę zmodyfikować dane.
+                 </md-checkbox><br>
+
+				<div class="different-info" ng-show='user.address && user.phone && wantToChange'>
+					<form name='forms.different_info' class='md-whiteframe-2dp' novalidate>
+						<h2>Podaj dane dotyczące zamówienia: </h2>
+	                    <md-input-container class="md-block" flex='100' flex-gt-sm='50'>
+	                      <label>Telefon</label>
+	                      <input ng-model="changedTelephone" type="tel" required pattern="\d*">
+	                      <div ng-messages="forms.different_info.changedTelephone.$error">
+	                        <div ng-message="required">Pole wymagane</div>
+	                        <div ng-message="pattern">Pole musi zawierać liczby!</div>
+	                      </div>
+	                    </md-input-container>
+
+	                    <md-input-container class="md-block" flex='100' flex-gt-sm='50'>
+	                      <label>Adres</label>
+	                      <input ng-model="changedAddress" type="text" required>
+	                      <div ng-messages="forms.different_info.changedAddress.$error">
+	                        <div ng-message="required">Pole wymagane</div>
+	                      </div>
+	                    </md-input-container>
+						
+						
+                  </form>
+
+				</div>
+				<md-checkbox ng-model="creditCardPayment" aria-label="rules" >
+                        Płacę kartą kredytową
+        		</md-checkbox><br>
+						<!-- <div class="credit-card md-whiteframe-2dp" ng-hide='!creditCardPayment'>
+							<form name='creditCardForm'>
+								<md-input-container flex='100' >
+			                      <label>Imię</label>
+			                      <input name='fName' ng-model="creditCard.fName" type="text" required>
+			                      	<div ng-messages="creditCardForm.fName.$error">
+			                        	<div ng-message="required">Pole wymagane</div>
+	                      			</div>
+	                    		</md-input-container>
+	                    		<md-input-container flex='100'>
+			                      <label>Nazwisko</label>
+			                      <input name='lName' ng-model="creditCard.lName" type="text" required>
+			                      	<div ng-messages="creditCardForm.lName.$error">
+			                        	<div ng-message="required">Pole wymagane</div>
+	                      			</div>
+	                    		</md-input-container>
+	                    		<md-input-container class="md-block" flex='100' flex-gt-sm='100'>
+			                      <label>Numer karty</label>
+			                      <input name='number' ng-model="creditCard.number" type="number" pattern="\d*" required>
+			                      	<div ng-messages="creditCardForm.number.$error">
+			                        	<div ng-message="required">Pole wymagane</div>
+			                        	<div ng-message="pattern">Pole musi zawierać liczby!</div>
+	                      			</div>
+	                    		</md-input-container>
+	                   
+	                    		<md-input-container>
+	                    			<label>Miesiąc</label>
+	                    			<md-select name='expM' ng-model='creditCard.expirationMonth' required>
+	                    				<md-option ng-value="'01'">01</md-option>
+	                    				<md-option ng-value="'02'">02</md-option>
+	                    				<md-option ng-value="'03'">03</md-option>
+	                    				<md-option ng-value="'04'">04</md-option>
+	                    				<md-option ng-value="'05'">05</md-option>
+	                    				<md-option ng-value="'06'">06</md-option>
+	                    				<md-option ng-value="'07'">07</md-option>
+	                    				<md-option ng-value="'08'">08</md-option>
+	                    				<md-option ng-value="'09'">09</md-option>
+	                    				<md-option ng-value="'10'">10</md-option>
+	                    				<md-option ng-value="'11'">11</md-option>
+	                    				<md-option ng-value="'12'">12</md-option>
+	                    			</md-select>
+	                    			<div ng-messages="creditCardForm.expM.$error">
+			                        	<div ng-message="required">Pole wymagane</div>
+	                      			</div>
+	                    		</md-input-container>
+	                    			<md-input-container>
+	                    			<label>Rok</label>
+	                    			<md-select name='expY' ng-model='creditCard.expirationYear' required>
+	                    				<md-option ng-value="'2017'">2017</md-option>
+	                    				<md-option ng-value="'2018'">2018</md-option>
+	                    				<md-option ng-value="'2019'">2019</md-option>
+	                    				<md-option ng-value="'2020'">2020</md-option>
+	                    				<md-option ng-value="'2021'">2021</md-option>
+	                    				<md-option ng-value="'2022'">2022</md-option>
+	                    				<md-option ng-value="'2023'">2023</md-option>
+	                    				<md-option ng-value="'2024'">2024</md-option>
+	                    				<md-option ng-value="'2025'">2025</md-option>
+	                    				<md-option ng-value="'2026'">2026</md-option>
+	                    				<md-option ng-value="'2027'">2027</md-option>
+	                    				<md-option ng-value="'2028'">2028</md-option>
+	                    			</md-select>
+	                    			<div ng-messages="creditCardForm.expY.$error">
+			                        	<div ng-message="required">Pole wymagane</div>
+	                      			</div>
+	                    		</md-input-container>
+	                    		<md-input-container flex='100' flex-gt-sm='100'>
+			                      <label>Kod</label>
+			                      <input ng-model="creditCard.cvc" type="text" required>
+			                      	<div ng-messages="creditCardForm.cvc.$error">
+			                        	<div ng-message="required">Pole wymagane</div>
+	                      			</div>
+	                    		</md-input-container>
+							</form>
+						</div> -->
+			<md-checkbox ng-model="isAccepted" aria-label="rules" >
+                        Składając zamwówienie akceptuję <a ng-click='mdDialog.hide()' ng-href="#rules">regulamin</a>
+        	</md-checkbox>
+
+		</div>
+		
+	 </md-dialog-content>
+	 <md-dialog-actions>
+	<md-button  class='md-cornered' ng-click="closeDialog()">Zamknij</md-button>
+	<md-button aria-label='transfer money' md-no-ink class='payu ' ng-disabled='!isAccepted || (wantToChange && (!changedTelephone || !changedAddress)) || ((!user.address || !user.phone) && (!missingTelephone || !missingAddress))' ng-click="makeRequest()"></md-button>
+	</md-dialog-actions>
+</md-dialog>

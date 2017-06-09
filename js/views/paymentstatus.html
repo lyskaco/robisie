@@ -1,0 +1,16 @@
+<section class="paymentStatus" ng-class='{resolved: isLoading===false}'>
+	<div class="loading" ng-if='isLoading'>
+		<p>Ładowanie informacji o transakcji...</p>
+		<md-progress-circular ng-disabled="!isLoading" class="md-yellow" md-diameter="100px"></md-progress-circular></div>
+	</div>
+	<div class="paymentOutput" ng-if='!isLoading'>
+		<p ng-if='response.result === "success"'>
+			<i class="mdi mdi-check"></i><br>
+			Transakcja przebiegła pomyślnie. Wysłaliśmy SMS do profesjonalisty z prośbą o akceptację zgłoszenia.
+		</p>
+		<p ng-if='response.result === "failure"'>
+			<i class="mdi mdi-close"></i><br>
+				Transakcja nie została przeprowadzona
+		</p>
+	</div>
+</section>

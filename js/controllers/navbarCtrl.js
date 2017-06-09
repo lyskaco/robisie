@@ -1,0 +1,3 @@
+app.controller("navbarCtrl",['$scope','srvAuth','$sessionStorage','$mdDialog','$location',function($scope,sAuth,$sessionStorage,$mdDialog,$location){$scope.sessionStorage=$sessionStorage;$scope.alertLogout=function(ev){$mdDialog.show($mdDialog.alert().parent(angular.element(document.querySelector('#popupContainer'))).clickOutsideToClose(true).title('Powiadomienie').textContent('Wylogowano pomyślnie!').ariaLabel('Alert Dialog Demo').ok('OK!').targetEvent(ev));};$scope.facebookLogout=function(){if($sessionStorage.FBToken){sAuth.logout();delete $sessionStorage.FBToken}delete $sessionStorage.user
+delete $sessionStorage.adminAccess
+$scope.alertLogout();$location.path('/hello')}}]);

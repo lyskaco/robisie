@@ -1,0 +1,92 @@
+<md-dialog aria-label="edit data" class='change-data'>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Zmień dane</h2>
+        <span flex></span>
+
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+
+      <div class="md-dialog-content">
+        <div class="change-password" ng-class='{FBToken: FID, FBToken: GID}'>
+         <h2>Zmień hasło</h2>
+          <form name='changepassword' >
+           <md-input-container class="md-block">
+                    <label>Stare hasło</label>
+                    <input ng-disabled='FID || GID' ng-model="changepassword.oldpassword" type="password" name='oldpassword' required>
+                    <div ng-messages="changepassword.oldpassword.$error">
+                      <div ng-message="required">Pole wymagane</div>
+                    </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                    <label>Nowe hasło</label>
+                
+                    <input ng-disabled='FID || GID' ng-model="changepassword.newpassword" type="password" required>
+                    <div ng-messages="changepassword.newpassword.$error">
+                      <div ng-message="required">Pole wymagane</div>
+                    </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                    <label>Powtórz nowe hasło</label>
+                  
+                    <input ng-disabled='FID || GID' ng-model="changepassword.newpassword_repeat" type="password" required>
+                    <div ng-messages="changepassword.newpassword_repeat.$error">
+                      <div ng-message="required">Pole wymagane</div>
+                    </div>
+            </md-input-container>
+
+          <md-button ng-disabled='changepassword.newpassword_repeat !== changepassword.newpassword || !changepassword.newpassword_repeat || !changepassword.newpassword || !changepassword.oldpassword' ng-click="changePassword()">
+          Zmień hasło
+          </md-button>
+          </form>
+        </div>
+        <div class="change-personal-data">
+              <h2>Zmień avatar</h2>
+                 <form name='changepicture'>
+                    <md-input-container class="">        
+                        <!--  <input onchange="angular.element(this).scope().file_changed(this)" type="file" aria-label='avatar-upload' id='file' ng-model="files" name="files" multiple accept="image/*" required> -->
+                         <aps-upload-file></aps-upload-file><br>
+                         <md-button ng-disabled='!image' ng-click='save()'>Dodaj zdjęcie</md-button>
+                         <div class="message" ng-show='avatarMessage'><md-icon class='mdi mdi-information md-icon' aria-label="counter "></md-icon>{{avatarMessage}}</div>
+                         <div ng-show='imgLoading'>
+                            <md-progress-circular ng-disabled="!imgLoading" class="md-accent" md-diameter="30px"></md-progress-circular></div>
+                    </md-input-container>
+                  </form>
+
+                  <form name='forms.changeData' novalidate>
+                    <md-input-container class="md-block">
+                      <label>Telefon</label>
+                      <input ng-model="change_data.telephone" type="tel" required pattern="\d*">
+                      <div ng-messages="forms.changeData.change_data.telephone.$error">
+                        <div ng-message="required">Pole wymagane</div>
+                        <div ng-message="pattern">Pole musi zawierać liczby!</div>
+                      </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block">
+                      <label>Adres</label>
+                      <input ng-model="change_data.address" type="text" required>
+                      <div ng-messages="forms.changeData.change_data.address.$error">
+                        <div ng-message="required">Pole wymagane</div>
+                      </div>
+                    </md-input-container>
+
+          <md-button ng-disabled='!change_data.telephone && !change_data.address' ng-click="changeData()">
+          Zmień dane
+          </md-button>
+            <div class="message" ng-show='changeDataMessage'><md-icon class='mdi mdi-information md-icon' aria-label="counter "></md-icon>{{changeDataMessage}}</div>
+                  </form>
+          
+        </div>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button ng-click="close()" style="margin-right:20px;" >
+        Zamknij
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

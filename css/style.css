@@ -1,0 +1,621 @@
+.image_layer{min-height:100vh;width:100%;background-image:url("../img/home2.jpeg");background-size:cover;background-repeat:no-repeat;background-position:right;z-index:3;opacity:1;position:absolute;}
+.layer{min-height:100vh;width:100%;background-image:linear-gradient(70deg, #028090 calc(50% - 1px), rgba(5, 102, 141, 0.91) 50%);background-size:cover;background-size:200%;background-position:50% 100%;z-index:4;position:absolute;animation-name:layerAnimate;animation-duration:2s;animation-timing-function:ease;}
+@keyframes layerAnimate{0%{background-position:100% 100%;}
+}
+.greetings-container{background-image:linear-gradient(120deg, #028090 calc(50% - 1px), transparent 50%);background-size:cover;background-position:100% 100%;min-height:100vh;overflow:hidden;z-index:5;position:absolute;display:flex;}
+.greetings-container .greetings-text{align-self:center;margin:0 0 100px 30px;width:50%;animation-name:greetings-text-show;animation-duration:1s;animation-timing-function:ease;}
+@keyframes greetings-text-show{0%{transform:translateX(-50%);}
+}
+.greetings-container .greetings-text h1{font-size:65px;line-height:90px;color:#CCE5FB;background-color:#05668D;display:inline;}
+.greetings-container .greetings-text h1 span{color:#FBC02D;display:inline-block;font-family:"Work Sans";}
+.greetings-container .greetings-choice{width:100%;position:absolute;bottom:0;left:0;text-align:center;height:200px;display:flex;justify-content:center;}
+.greetings-container .greetings-choice .greetings-become-pro, .greetings-container .greetings-choice .greetings-hire-pro{background-color:#05668D;width:49%;box-sizing:content-box;cursor:pointer;text-transform:none;color:#fff;margin:0;}
+.greetings-container .greetings-choice .greetings-become-pro:hover .button-content i, .greetings-container .greetings-choice .greetings-hire-pro:hover .button-content i{animation-name:hoverI;animation-duration:0.5s;animation-timing-function:ease;animation-fill-mode:forwards;}
+@keyframes hoverI{100%{transform:translateY(-450%);}
+}
+.greetings-container .greetings-choice .greetings-become-pro:hover .button-content .text, .greetings-container .greetings-choice .greetings-hire-pro:hover .button-content .text{display:block;animation-name:hoverText;animation-duration:0.5s;animation-timing-function:ease;animation-fill-mode:forwards;}
+@keyframes hoverText{100%{transform:translateY(0%);}
+}
+.greetings-container .greetings-choice .greetings-become-pro .button-content, .greetings-container .greetings-choice .greetings-hire-pro .button-content{display:flex;flex-direction:column;align-items:center;justify-content:space-between;}
+.greetings-container .greetings-choice .greetings-become-pro .button-content i, .greetings-container .greetings-choice .greetings-hire-pro .button-content i{font-size:200px;}
+.greetings-container .greetings-choice .greetings-become-pro .button-content .text, .greetings-container .greetings-choice .greetings-hire-pro .button-content .text{font-size:20px;transform:translateY(450%);font-family:"Work Sans";font-weight:700;display:none;}
+.greetings-container .greetings-choice a{color:#E3E3E3;}
+.greetings-container .greetings-choice .greetings-become-pro{background-color:rgba(119, 51, 68, 0.1);animation-name:become-pro;animation-duration:0.5s;animation-timing-function:ease-in-out;}
+.greetings-container .greetings-choice .greetings-hire-pro{background-color:rgba(119, 51, 68, 0.1);animation-name:become-pro;animation-duration:0.5s;animation-timing-function:ease-in-out;animation-delay:0.2s;animation-fill-mode:backwards;}
+@keyframes become-pro{0%{opacity:0;}
+}
+@media (max-width:1000px){.greetings-container .greetings-text{width:100%;}
+.greetings-container .greetings-text h1{font-size:40px;}
+}
+@media (max-width:600px){.greetings-container .greetings-text{width:100%;margin:0px 0 0 0;align-self:center;}
+.greetings-container .greetings-text h1{font-size:35px;line-height:50px;}
+.greetings-container .greetings-choice{height:150px;}
+.greetings-container .greetings-choice .greetings-become-pro .button-content i, .greetings-container .greetings-choice .greetings-hire-pro .button-content i{font-size:80px;}
+}
+.login{background-color:#028090;min-height:100vh;overflow:hidden;}
+.login h1{color:#05668D;font-size:50px;font-weight:600;}
+.login .login-container{box-shadow:0px 0px 15px #05668D;background-color:#CCE5FB;margin:100px auto;width:500px;animation-name:login-box;animation-duration:0.3s;animation-timing-function:ease;}
+@keyframes login-box{0%{transform:translateY(50%);}
+}
+.login .login-container md-content{background-color:#CCE5FB;}
+.login .login-container md-content md-input-container label{color:#05668D;}
+.login .login-container md-content md-input-container:not(.md-input-invalid).md-input-focused .md-input{border-color:#05668D;}
+.login .login-container span{font-weight:400;color:#271F30;}
+.login .login-container a{text-align:right;text-decoration:none;color:#05668D;}
+.login .login-container .login-output{text-align:center;margin:10px auto;font-weight:800;color:#028090;display:block;}
+.login .login-container .md-button{margin:0 auto;width:200px;display:block;background-color:#E3E3E3;}
+.login .login-container .md-button:disabled{opacity:0.3;}
+.login .login-container .login-social{margin-top:30px;text-align:center;}
+.login .login-container .login-social span{font-weight:600;color:#05668D;display:block;margin:20px 0;}
+.login .login-container .login-social .md-button{display:inline-block;width:48%;margin:5px auto;background-color:#E3E3E3;}
+.login .login-container .login-social .md-button:first-of-type i{color:#3b5998;}
+.login .login-container .login-social .md-button:last-child i{color:#d34836;}
+.login .login-container .login-social .md-button span{line-height:10px;}
+.login .login-container .login-social .md-button i{font-size:30px;line-height:40px;}
+@media (max-width:600px){.login{overflow:hidden;}
+.login h1{font-size:30px;text-align:center;}
+.login .login-container{width:100%;}
+.login .login-container md-input-container{display:block;}
+}
+.register{background-color:#028090;overflow:hidden;}
+.register h1{color:#05668D;font-size:50px;font-weight:600;}
+.register .register-container{box-shadow:0px 0px 10px #05668D;background-color:#CCE5FB;margin:80px auto;width:500px;animation-name:login-box;animation-duration:0.3s;animation-timing-function:ease;}
+@keyframes login-box{0%{transform:translateY(50%);}
+}
+.register .register-container md-content{background-color:#CCE5FB;}
+.register .register-container md-content md-input-container label{color:#05668D;}
+.register .register-container md-content md-input-container:not(.md-input-invalid).md-input-focused .md-input{border-color:#05668D;}
+.register .register-container span{font-weight:400;color:#05668D;}
+.register .register-container a{text-align:right;text-decoration:none;color:#05668D;}
+.register .register-container .message{text-align:center;margin:10px 0;color:#028090;}
+.register .register-container .md-button{margin:0 auto;width:200px;display:block;background-color:#E3E3E3;}
+.register .register-container .md-button:disabled{opacity:0.5;}
+.register .register-container .login-social{margin-top:30px;text-align:center;}
+.register .register-container .login-social span{font-weight:600;color:#05668D;display:block;margin:20px 0;}
+.register .register-container .login-social .md-button{display:inline-block;width:48%;margin:5px auto;background-color:#E3E3E3;}
+.register .register-container .login-social .md-button:first-of-type i{color:#3b5998;}
+.register .register-container .login-social .md-button:last-child i{color:#d34836;}
+.register .register-container .login-social .md-button span{line-height:10px;}
+.register .register-container .login-social .md-button i{font-size:30px;line-height:40px;}
+@media (max-width:600px){.register{overflow:hidden;}
+.register h1{font-size:30px;text-align:center;}
+.register .register-container{width:100%;}
+.register .register-container md-input-container{display:block;}
+}
+.coping-with-shit{background-color:#05668D !important;color:#CCE5FB;}
+.what-choice-container{min-height:100vh;display:flex;justify-content:center;background-color:#028090;align-items:center;flex-wrap:wrap;}
+.what-choice-container .md-button{width:600px;height:300px;font-size:15px;color:#D0FCB3;font-weight:400;padding:0;transition:all, 2s, ease-in;}
+.what-choice-container .md-button .t-wrap{color:#E3E3E3;font-size:16px;transition-duration:1s;}
+.what-choice-container .md-button .t-wrap:hover{letter-spacing:3px;color:#CCE5FB;}
+.what-choice-container .member-become-pro{background-image:url("../img/wrench.png");background-size:cover;background-repeat:no-repeat;background-position:0 0;}
+.what-choice-container .member-become-pro:hover{background-position:100% 50%;}
+.what-choice-container .member-hire-pro{background-repeat:no-repeat;background-image:url("../img/hire.png");background-size:cover;}
+.what-choice-container .member-hire-pro:hover{background-position:50% 50%;}
+.becomepro-container .missing-data{background-color:#CCE5FB;color:#028090;padding:15px 0;margin-bottom:10px;text-align:center;width:500px;margin:0 auto;}
+.becomepro-container .missing-data i{font-size:50px;margin:0 25px;vertical-align:middle;}
+.becomepro-container .missing-data h3{margin-bottom:20px;}
+.becomepro-container .missing-data span{font-size:17px;color:#05668D;font-weight:800;text-transform:lowercase;font-style:italic;}
+.becomepro-container .missing-data span:after{content:",";}
+.becomepro-container .missing-data span:last-child:after{content:"";}
+.hirepro-container, .becomepro-container{z-index:0;overflow:hidden;margin-top:60px;position:absolute;background-color:#028090;width:100%;}
+.hirepro-container .label, .becomepro-container .label{transform:scale(0);background-color:#FBC02D;text-align:center;line-height:20px;padding:1px 7px;display:inline-block;margin-left:6px;border-radius:50%;animation-name:labelPop;animation-duration:0.5s;animation-delay:1s;animation-timing-function:ease;animation-fill-mode:forwards;font-weight:900;color:#028090;}
+@keyframes labelPop{0%{transform:scale(0);}
+100%{transform:scale(1);}
+}
+.hirepro-container md-content.md-default-theme, .hirepro-container md-content, .becomepro-container md-content.md-default-theme, .becomepro-container md-content{background-color:#028090;}
+.hirepro-container .md-button.md-default-theme.md-accent, .hirepro-container .md-button.md-accent, .becomepro-container .md-button.md-default-theme.md-accent, .becomepro-container .md-button.md-accent{color:#CCE5FB;font-weight:300;}
+.hirepro-container md-nav-bar .md-button._md-nav-button.md-unselected, .becomepro-container md-nav-bar .md-button._md-nav-button.md-unselected{color:#E3E3E3;font-weight:300;}
+.hirepro-container md-nav-bar.md-default-theme md-nav-ink-bar, .hirepro-container md-nav-bar md-nav-ink-bar, .becomepro-container md-nav-bar.md-default-theme md-nav-ink-bar, .becomepro-container md-nav-bar md-nav-ink-bar{background-color:#CCE5FB;}
+.hirepro-container md-nav-bar .md-button.md-default-theme.md-accent:not([disabled]) md-icon, .hirepro-container md-nav-bar .md-button.md-accent:not([disabled]) md-icon, .becomepro-container md-nav-bar .md-button.md-default-theme.md-accent:not([disabled]) md-icon, .becomepro-container md-nav-bar .md-button.md-accent:not([disabled]) md-icon{font-size:30px;color:#CCE5FB;}
+.hirepro-container .account, .becomepro-container .account{min-height:85vh;overflow:hidden;}
+.hirepro-container .account .credentials, .becomepro-container .account .credentials{width:500px;margin:0px auto;}
+.hirepro-container .account .credentials .missing-data, .becomepro-container .account .credentials .missing-data{background-color:#CCE5FB;color:#028090;padding:15px 0;margin-bottom:10px;border-bottom-right-radius:5px;border-bottom-left-radius:5px;animation-name:warning-appear;animation-duration:1s;animation-timing-function:ease;}
+@keyframes warning-appear{0%{opacity:0;}
+}
+.hirepro-container .account .credentials .missing-data i, .becomepro-container .account .credentials .missing-data i{font-size:50px;margin:0 25px;vertical-align:middle;}
+.hirepro-container .account .credentials .missing-data span, .becomepro-container .account .credentials .missing-data span{font-size:17px;}
+.hirepro-container .account .credentials h1, .becomepro-container .account .credentials h1{margin-top:20px;font-size:55px;background-color:#05668D;color:#CCE5FB;padding:10px;}
+.hirepro-container .account .credentials md-card, .becomepro-container .account .credentials md-card{margin-top:110px;background-color:#CCE5FB;border:none;border-radius:0;}
+.hirepro-container .account .credentials md-card .md-headline, .becomepro-container .account .credentials md-card .md-headline{color:#05668D;font-weight:800;}
+.hirepro-container .account .credentials md-card img, .becomepro-container .account .credentials md-card img{width:100%;height:100%;object-fit:cover;border-radius:50%;box-shadow:2px 3px 10px #028090;}
+.hirepro-container .account .credentials md-card .md-button md-icon, .becomepro-container .account .credentials md-card .md-button md-icon{font-size:20px;height:inherit;}
+.hirepro-container .find-pro, .becomepro-container .find-pro{margin-top:30px;display:flex;justify-content:flex-start;}
+.hirepro-container .find-pro md-switch.md-checked .md-bar, .becomepro-container .find-pro md-switch.md-checked .md-bar{background-color:#FFDD8D;}
+.hirepro-container .find-pro md-switch.md-checked .md-ink-ripple, .becomepro-container .find-pro md-switch.md-checked .md-ink-ripple{background-color:#FBC02D;}
+.hirepro-container .find-pro .switch, .becomepro-container .find-pro .switch{float:right;margin-right:20px;}
+.hirepro-container .find-pro .switch span, .becomepro-container .find-pro .switch span{font-size:10px;font-weight:400;color:#FBC02D;text-transform:uppercase;}
+.hirepro-container .find-pro article, .becomepro-container .find-pro article{box-shadow:0px 0px 10px #05668D;flex-grow:2;min-height:85vh;overflow-x:hidden;background-color:#CCE5FB;margin:0 10px 0 0;}
+.hirepro-container .find-pro article h1, .becomepro-container .find-pro article h1{font-size:50px;color:#CCE5FB;text-align:left;background-color:#05668D;padding:5px;}
+.hirepro-container .find-pro article .container, .becomepro-container .find-pro article .container{clear:both;}
+.hirepro-container .find-pro article .container .showMore .md-button, .becomepro-container .find-pro article .container .showMore .md-button{color:#05668D;}
+.hirepro-container .find-pro article .container .filter-first, .becomepro-container .find-pro article .container .filter-first{margin:150px auto;text-align:center;}
+.hirepro-container .find-pro article .container .filter-first h2, .hirepro-container .find-pro article .container .filter-first i, .becomepro-container .find-pro article .container .filter-first h2, .becomepro-container .find-pro article .container .filter-first i{font-size:30px;color:#fff;}
+.hirepro-container .find-pro article .container .filter-first i, .becomepro-container .find-pro article .container .filter-first i{font-size:150px;}
+.hirepro-container .find-pro article .container .offer.ng-hide-remove, .hirepro-container .find-pro article .container .offer.ng-hide-remove, .becomepro-container .find-pro article .container .offer.ng-hide-remove, .becomepro-container .find-pro article .container .offer.ng-hide-remove{animation-name:offerSlideIn;animation-duration:0.3s;animation-timing-function:ease;animation-delay:0.3s;animation-fill-mode:backwards;}
+.hirepro-container .find-pro article .container .offer.ng-hide-add, .hirepro-container .find-pro article .container .offer.ng-hide-add, .becomepro-container .find-pro article .container .offer.ng-hide-add, .becomepro-container .find-pro article .container .offer.ng-hide-add{animation-name:offerSlideOut;animation-duration:0.2s;animation-timing-function:ease;}
+@keyframes offerSlideIn{0%{opacity:0;transform:translateY(50%);}
+}
+@keyframes offerSlideOut{100%{transform:translateY(50%);}
+}
+.hirepro-container .find-pro article .container .offer, .becomepro-container .find-pro article .container .offer{margin:10px;box-shadow:0px 0px 10px #05668D;background-color:#E3E3E3;display:flex;justify-content:space-between;}
+.hirepro-container .find-pro article .container .offer .general-info, .becomepro-container .find-pro article .container .offer .general-info{padding:10px;flex-grow:1;}
+.hirepro-container .find-pro article .container .offer .general-info h2, .becomepro-container .find-pro article .container .offer .general-info h2{font-size:45px;color:#05668D;}
+.hirepro-container .find-pro article .container .offer .general-info .profile-photo, .becomepro-container .find-pro article .container .offer .general-info .profile-photo{width:128px;height:128px;float:right;margin:5px;transition:all 0.5s ease;}
+.hirepro-container .find-pro article .container .offer .general-info .profile-photo:hover, .becomepro-container .find-pro article .container .offer .general-info .profile-photo:hover{transform:scale(1.05);}
+.hirepro-container .find-pro article .container .offer .general-info .profile-photo img, .becomepro-container .find-pro article .container .offer .general-info .profile-photo img{width:100%;height:100%;border-radius:50%;box-shadow:2px 0px 10px #A29999;object-fit:cover;}
+.hirepro-container .find-pro article .container .offer .general-info .ranking, .becomepro-container .find-pro article .container .offer .general-info .ranking{margin:10px 0;display:inline-flex;align-items:center;}
+.hirepro-container .find-pro article .container .offer .general-info .ranking md-progress-circular, .becomepro-container .find-pro article .container .offer .general-info .ranking md-progress-circular{display:inline-block;}
+.hirepro-container .find-pro article .container .offer .general-info .ranking md-progress-circular path, .becomepro-container .find-pro article .container .offer .general-info .ranking md-progress-circular path{stroke:#028090;}
+.hirepro-container .find-pro article .container .offer .general-info .ranking span, .becomepro-container .find-pro article .container .offer .general-info .ranking span{margin-right:15px;font-size:14px;color:#05668D;}
+.hirepro-container .find-pro article .container .offer .general-info .fields, .becomepro-container .find-pro article .container .offer .general-info .fields{display:inline-flex;flex-wrap:wrap;align-items:center;font-size:14px;color:#05668D;max-width:250px;}
+.hirepro-container .find-pro article .container .offer .general-info .fields li, .becomepro-container .find-pro article .container .offer .general-info .fields li{list-style-type:none;display:inline-block;background-color:#028090;border-radius:5px;color:#CCE5FB;padding:3px 5px;text-transform:uppercase;font-size:10px;margin:3px 5px;}
+.hirepro-container .find-pro article .container .offer .general-info .fields li:hover, .becomepro-container .find-pro article .container .offer .general-info .fields li:hover{opacity:0.7;}
+.hirepro-container .find-pro article .container .offer .general-info .description, .becomepro-container .find-pro article .container .offer .general-info .description{margin-top:15px;}
+.hirepro-container .find-pro article .container .offer .general-info .description h3, .becomepro-container .find-pro article .container .offer .general-info .description h3{font-size:18px;color:#05668D;font-weight:700;}
+.hirepro-container .find-pro article .container .offer .general-info .description p, .becomepro-container .find-pro article .container .offer .general-info .description p{margin-top:5px;margin-left:10px;font-size:14px;color:#05668D;width:350px;}
+.hirepro-container .find-pro article .container .offer .price, .becomepro-container .find-pro article .container .offer .price{display:flex;justify-content:center;flex-direction:column;padding:0 10px;color:#CCE5FB;font-weight:500;background-color:#05668D;text-align:center;line-height:45px;width:240px;vertical-align:bottom;}
+.hirepro-container .find-pro article .container .offer .price h3, .becomepro-container .find-pro article .container .offer .price h3{font-size:45px;}
+.hirepro-container .find-pro article .container .offer .button-container, .becomepro-container .find-pro article .container .offer .button-container{text-align:right;margin-top:15px;}
+.hirepro-container .find-pro article .container .offer .button-container i, .becomepro-container .find-pro article .container .offer .button-container i{font-size:20px;margin:0 10px;}
+.hirepro-container .find-pro article .container .offer .button-container .md-button, .becomepro-container .find-pro article .container .offer .button-container .md-button{font-size:14px;}
+.hirepro-container .find-pro article .container .offer .button-container .md-button:first-of-type, .becomepro-container .find-pro article .container .offer .button-container .md-button:first-of-type{color:#05668D;}
+.hirepro-container .find-pro article .container .offer .button-container .md-button:last-of-type, .becomepro-container .find-pro article .container .offer .button-container .md-button:last-of-type{background-color:#05668D;color:#CCE5FB;}
+.hirepro-container .find-pro aside, .becomepro-container .find-pro aside{box-shadow:0px 0px 10px #05668D;width:320px;background-color:#CCE5FB;}
+.hirepro-container .find-pro aside md-icon, .becomepro-container .find-pro aside md-icon{font-size:24px;color:rgba(0, 0, 0, 0.54);}
+.hirepro-container .find-pro aside ._md-datepicker-floating-label._md-datepicker-has-calendar-icon > label:not(.md-no-float):not(.md-container-ignore), .becomepro-container .find-pro aside ._md-datepicker-floating-label._md-datepicker-has-calendar-icon > label:not(.md-no-float):not(.md-container-ignore){right:auto;}
+.hirepro-container .find-pro aside .md-datepicker-input-container, .becomepro-container .find-pro aside .md-datepicker-input-container{width:85%;padding:0;margin:0;}
+.hirepro-container .find-pro aside md-input-container.md-icon-float, .becomepro-container .find-pro aside md-input-container.md-icon-float{width:85%;}
+.hirepro-container .find-pro aside md-input-container > md-icon, .becomepro-container .find-pro aside md-input-container > md-icon{left:10px;}
+.hirepro-container .find-pro aside ._md-datepicker-floating-label > md-datepicker .md-datepicker-button, .becomepro-container .find-pro aside ._md-datepicker-floating-label > md-datepicker .md-datepicker-button{margin:0;padding:0;}
+.hirepro-container .find-pro aside h1, .becomepro-container .find-pro aside h1{padding:5px;font-size:50px;color:#CCE5FB;text-align:left;background-color:#05668D;}
+.hirepro-container .find-pro aside md-input-container .md-input, .becomepro-container .find-pro aside md-input-container .md-input{color:#028090;font-weight:200;}
+.hirepro-container .find-pro aside .button-container, .becomepro-container .find-pro aside .button-container{text-align:center;}
+.hirepro-container .find-pro aside .button-container .md-button, .becomepro-container .find-pro aside .button-container .md-button{color:#028090;}
+.hirepro-container .request-given, .hirepro-container .request-received, .becomepro-container .request-given, .becomepro-container .request-received{min-height:85vh;}
+.hirepro-container .request-given .no-request, .hirepro-container .request-received .no-request, .becomepro-container .request-given .no-request, .becomepro-container .request-received .no-request{font-size:20px;color:#CCE5FB;text-transform:uppercase;text-align:center;}
+.hirepro-container .request-given .request.requestdisabled, .hirepro-container .request-received .request.requestdisabled, .becomepro-container .request-given .request.requestdisabled, .becomepro-container .request-received .request.requestdisabled{opacity:0.6;transition-duration:0.5s;}
+.hirepro-container .request-given .request.request_completed .time, .hirepro-container .request-given .request.request_completed .info, .hirepro-container .request-given .request.request_completed .professional-info, .hirepro-container .request-received .request.request_completed .time, .hirepro-container .request-received .request.request_completed .info, .hirepro-container .request-received .request.request_completed .professional-info, .becomepro-container .request-given .request.request_completed .time, .becomepro-container .request-given .request.request_completed .info, .becomepro-container .request-given .request.request_completed .professional-info, .becomepro-container .request-received .request.request_completed .time, .becomepro-container .request-received .request.request_completed .info, .becomepro-container .request-received .request.request_completed .professional-info{background-color:#A1F995;transition-duration:0.5s;}
+.hirepro-container .request-given .request.request_complicated .time, .hirepro-container .request-given .request.request_complicated .info, .hirepro-container .request-given .request.request_complicated .professional-info, .hirepro-container .request-received .request.request_complicated .time, .hirepro-container .request-received .request.request_complicated .info, .hirepro-container .request-received .request.request_complicated .professional-info, .becomepro-container .request-given .request.request_complicated .time, .becomepro-container .request-given .request.request_complicated .info, .becomepro-container .request-given .request.request_complicated .professional-info, .becomepro-container .request-received .request.request_complicated .time, .becomepro-container .request-received .request.request_complicated .info, .becomepro-container .request-received .request.request_complicated .professional-info{background-color:#FF8080;transition-duration:0.5s;}
+.hirepro-container .request-given .request, .hirepro-container .request-received .request, .becomepro-container .request-given .request, .becomepro-container .request-received .request{width:100%;margin:10px auto;min-height:140px;color:#05668D;display:flex;flex-wrap:wrap;align-items:center;}
+.hirepro-container .request-given .request .request-review, .hirepro-container .request-received .request .request-review, .becomepro-container .request-given .request .request-review, .becomepro-container .request-received .request .request-review{background-color:#CCE5FB;height:100px;}
+.hirepro-container .request-given .request h5, .hirepro-container .request-received .request h5, .becomepro-container .request-given .request h5, .becomepro-container .request-received .request h5{font-size:16px;display:inline-block;}
+.hirepro-container .request-given .request .time, .hirepro-container .request-given .request .info, .hirepro-container .request-given .request .professional-info, .hirepro-container .request-received .request .time, .hirepro-container .request-received .request .info, .hirepro-container .request-received .request .professional-info, .becomepro-container .request-given .request .time, .becomepro-container .request-given .request .info, .becomepro-container .request-given .request .professional-info, .becomepro-container .request-received .request .time, .becomepro-container .request-received .request .info, .becomepro-container .request-received .request .professional-info{display:inline-flex;background-color:#FFF;height:230px;position:relative;}
+.hirepro-container .request-given .request .time ul.review-container.ng-hide-remove, .hirepro-container .request-given .request .info ul.review-container.ng-hide-remove, .hirepro-container .request-given .request .professional-info ul.review-container.ng-hide-remove, .hirepro-container .request-received .request .time ul.review-container.ng-hide-remove, .hirepro-container .request-received .request .info ul.review-container.ng-hide-remove, .hirepro-container .request-received .request .professional-info ul.review-container.ng-hide-remove, .becomepro-container .request-given .request .time ul.review-container.ng-hide-remove, .becomepro-container .request-given .request .info ul.review-container.ng-hide-remove, .becomepro-container .request-given .request .professional-info ul.review-container.ng-hide-remove, .becomepro-container .request-received .request .time ul.review-container.ng-hide-remove, .becomepro-container .request-received .request .info ul.review-container.ng-hide-remove, .becomepro-container .request-received .request .professional-info ul.review-container.ng-hide-remove{animation:ulappear 0.5s ease;}
+@keyframes ulappear{0%{transform:translateY(-50%);}
+}
+.hirepro-container .request-given .request .time ul.review-container, .hirepro-container .request-given .request .info ul.review-container, .hirepro-container .request-given .request .professional-info ul.review-container, .hirepro-container .request-received .request .time ul.review-container, .hirepro-container .request-received .request .info ul.review-container, .hirepro-container .request-received .request .professional-info ul.review-container, .becomepro-container .request-given .request .time ul.review-container, .becomepro-container .request-given .request .info ul.review-container, .becomepro-container .request-given .request .professional-info ul.review-container, .becomepro-container .request-received .request .time ul.review-container, .becomepro-container .request-received .request .info ul.review-container, .becomepro-container .request-received .request .professional-info ul.review-container{background-color:#CCE5FB;padding:10px;width:100%;margin:0 10px;align-self:center;}
+.hirepro-container .request-given .request .time ul.review-container li, .hirepro-container .request-given .request .info ul.review-container li, .hirepro-container .request-given .request .professional-info ul.review-container li, .hirepro-container .request-received .request .time ul.review-container li, .hirepro-container .request-received .request .info ul.review-container li, .hirepro-container .request-received .request .professional-info ul.review-container li, .becomepro-container .request-given .request .time ul.review-container li, .becomepro-container .request-given .request .info ul.review-container li, .becomepro-container .request-given .request .professional-info ul.review-container li, .becomepro-container .request-received .request .time ul.review-container li, .becomepro-container .request-received .request .info ul.review-container li, .becomepro-container .request-received .request .professional-info ul.review-container li{list-style-type:none;}
+.hirepro-container .request-given .request .time ul.review-container li span, .hirepro-container .request-given .request .info ul.review-container li span, .hirepro-container .request-given .request .professional-info ul.review-container li span, .hirepro-container .request-received .request .time ul.review-container li span, .hirepro-container .request-received .request .info ul.review-container li span, .hirepro-container .request-received .request .professional-info ul.review-container li span, .becomepro-container .request-given .request .time ul.review-container li span, .becomepro-container .request-given .request .info ul.review-container li span, .becomepro-container .request-given .request .professional-info ul.review-container li span, .becomepro-container .request-received .request .time ul.review-container li span, .becomepro-container .request-received .request .info ul.review-container li span, .becomepro-container .request-received .request .professional-info ul.review-container li span{font-weight:800;}
+.hirepro-container .request-given .request .time ul:not(.review-container).ng-hide-remove-active, .hirepro-container .request-given .request .info ul:not(.review-container).ng-hide-remove-active, .hirepro-container .request-given .request .professional-info ul:not(.review-container).ng-hide-remove-active, .hirepro-container .request-received .request .time ul:not(.review-container).ng-hide-remove-active, .hirepro-container .request-received .request .info ul:not(.review-container).ng-hide-remove-active, .hirepro-container .request-received .request .professional-info ul:not(.review-container).ng-hide-remove-active, .becomepro-container .request-given .request .time ul:not(.review-container).ng-hide-remove-active, .becomepro-container .request-given .request .info ul:not(.review-container).ng-hide-remove-active, .becomepro-container .request-given .request .professional-info ul:not(.review-container).ng-hide-remove-active, .becomepro-container .request-received .request .time ul:not(.review-container).ng-hide-remove-active, .becomepro-container .request-received .request .info ul:not(.review-container).ng-hide-remove-active, .becomepro-container .request-received .request .professional-info ul:not(.review-container).ng-hide-remove-active{animation:ulappear 0.5s ease forwards;}
+@keyframes ulappear{0%{transform:scale(0);}
+}
+.hirepro-container .request-given .request .time ul:not(.review-container), .hirepro-container .request-given .request .info ul:not(.review-container), .hirepro-container .request-given .request .professional-info ul:not(.review-container), .hirepro-container .request-received .request .time ul:not(.review-container), .hirepro-container .request-received .request .info ul:not(.review-container), .hirepro-container .request-received .request .professional-info ul:not(.review-container), .becomepro-container .request-given .request .time ul:not(.review-container), .becomepro-container .request-given .request .info ul:not(.review-container), .becomepro-container .request-given .request .professional-info ul:not(.review-container), .becomepro-container .request-received .request .time ul:not(.review-container), .becomepro-container .request-received .request .info ul:not(.review-container), .becomepro-container .request-received .request .professional-info ul:not(.review-container){padding:10px;}
+.hirepro-container .request-given .request .time ul:not(.review-container) h5, .hirepro-container .request-given .request .info ul:not(.review-container) h5, .hirepro-container .request-given .request .professional-info ul:not(.review-container) h5, .hirepro-container .request-received .request .time ul:not(.review-container) h5, .hirepro-container .request-received .request .info ul:not(.review-container) h5, .hirepro-container .request-received .request .professional-info ul:not(.review-container) h5, .becomepro-container .request-given .request .time ul:not(.review-container) h5, .becomepro-container .request-given .request .info ul:not(.review-container) h5, .becomepro-container .request-given .request .professional-info ul:not(.review-container) h5, .becomepro-container .request-received .request .time ul:not(.review-container) h5, .becomepro-container .request-received .request .info ul:not(.review-container) h5, .becomepro-container .request-received .request .professional-info ul:not(.review-container) h5{font-size:20px;color:#05668D;margin:0px 0 15px 0;}
+.hirepro-container .request-given .request .time ul:not(.review-container) li, .hirepro-container .request-given .request .info ul:not(.review-container) li, .hirepro-container .request-given .request .professional-info ul:not(.review-container) li, .hirepro-container .request-received .request .time ul:not(.review-container) li, .hirepro-container .request-received .request .info ul:not(.review-container) li, .hirepro-container .request-received .request .professional-info ul:not(.review-container) li, .becomepro-container .request-given .request .time ul:not(.review-container) li, .becomepro-container .request-given .request .info ul:not(.review-container) li, .becomepro-container .request-given .request .professional-info ul:not(.review-container) li, .becomepro-container .request-received .request .time ul:not(.review-container) li, .becomepro-container .request-received .request .info ul:not(.review-container) li, .becomepro-container .request-received .request .professional-info ul:not(.review-container) li{text-align:left;list-style-type:none;max-width:300px;margin:5px 0;}
+.hirepro-container .request-given .request .time ul:not(.review-container) li span, .hirepro-container .request-given .request .info ul:not(.review-container) li span, .hirepro-container .request-given .request .professional-info ul:not(.review-container) li span, .hirepro-container .request-received .request .time ul:not(.review-container) li span, .hirepro-container .request-received .request .info ul:not(.review-container) li span, .hirepro-container .request-received .request .professional-info ul:not(.review-container) li span, .becomepro-container .request-given .request .time ul:not(.review-container) li span, .becomepro-container .request-given .request .info ul:not(.review-container) li span, .becomepro-container .request-given .request .professional-info ul:not(.review-container) li span, .becomepro-container .request-received .request .time ul:not(.review-container) li span, .becomepro-container .request-received .request .info ul:not(.review-container) li span, .becomepro-container .request-received .request .professional-info ul:not(.review-container) li span{max-width:200px;}
+.hirepro-container .request-given .request .time ul:not(.review-container) li i, .hirepro-container .request-given .request .info ul:not(.review-container) li i, .hirepro-container .request-given .request .professional-info ul:not(.review-container) li i, .hirepro-container .request-received .request .time ul:not(.review-container) li i, .hirepro-container .request-received .request .info ul:not(.review-container) li i, .hirepro-container .request-received .request .professional-info ul:not(.review-container) li i, .becomepro-container .request-given .request .time ul:not(.review-container) li i, .becomepro-container .request-given .request .info ul:not(.review-container) li i, .becomepro-container .request-given .request .professional-info ul:not(.review-container) li i, .becomepro-container .request-received .request .time ul:not(.review-container) li i, .becomepro-container .request-received .request .info ul:not(.review-container) li i, .becomepro-container .request-received .request .professional-info ul:not(.review-container) li i{margin:0 5px 0 2px;color:#05668D;font-size:20px;}
+.hirepro-container .request-given .request .time .confirmDoneContainer, .hirepro-container .request-given .request .time .acceptOfferContainer, .hirepro-container .request-given .request .info .confirmDoneContainer, .hirepro-container .request-given .request .info .acceptOfferContainer, .hirepro-container .request-given .request .professional-info .confirmDoneContainer, .hirepro-container .request-given .request .professional-info .acceptOfferContainer, .hirepro-container .request-received .request .time .confirmDoneContainer, .hirepro-container .request-received .request .time .acceptOfferContainer, .hirepro-container .request-received .request .info .confirmDoneContainer, .hirepro-container .request-received .request .info .acceptOfferContainer, .hirepro-container .request-received .request .professional-info .confirmDoneContainer, .hirepro-container .request-received .request .professional-info .acceptOfferContainer, .becomepro-container .request-given .request .time .confirmDoneContainer, .becomepro-container .request-given .request .time .acceptOfferContainer, .becomepro-container .request-given .request .info .confirmDoneContainer, .becomepro-container .request-given .request .info .acceptOfferContainer, .becomepro-container .request-given .request .professional-info .confirmDoneContainer, .becomepro-container .request-given .request .professional-info .acceptOfferContainer, .becomepro-container .request-received .request .time .confirmDoneContainer, .becomepro-container .request-received .request .time .acceptOfferContainer, .becomepro-container .request-received .request .info .confirmDoneContainer, .becomepro-container .request-received .request .info .acceptOfferContainer, .becomepro-container .request-received .request .professional-info .confirmDoneContainer, .becomepro-container .request-received .request .professional-info .acceptOfferContainer{position:absolute;top:0;right:0;}
+.hirepro-container .request-given .request .time .confirmDoneContainer .md-button, .hirepro-container .request-given .request .info .confirmDoneContainer .md-button, .hirepro-container .request-given .request .professional-info .confirmDoneContainer .md-button, .hirepro-container .request-received .request .time .confirmDoneContainer .md-button, .hirepro-container .request-received .request .info .confirmDoneContainer .md-button, .hirepro-container .request-received .request .professional-info .confirmDoneContainer .md-button, .becomepro-container .request-given .request .time .confirmDoneContainer .md-button, .becomepro-container .request-given .request .info .confirmDoneContainer .md-button, .becomepro-container .request-given .request .professional-info .confirmDoneContainer .md-button, .becomepro-container .request-received .request .time .confirmDoneContainer .md-button, .becomepro-container .request-received .request .info .confirmDoneContainer .md-button, .becomepro-container .request-received .request .professional-info .confirmDoneContainer .md-button{background-color:#05668D;color:#CCE5FB;}
+.hirepro-container .request-given .request .time .md-button, .hirepro-container .request-given .request .info .md-button, .hirepro-container .request-given .request .professional-info .md-button, .hirepro-container .request-received .request .time .md-button, .hirepro-container .request-received .request .info .md-button, .hirepro-container .request-received .request .professional-info .md-button, .becomepro-container .request-given .request .time .md-button, .becomepro-container .request-given .request .info .md-button, .becomepro-container .request-given .request .professional-info .md-button, .becomepro-container .request-received .request .time .md-button, .becomepro-container .request-received .request .info .md-button, .becomepro-container .request-received .request .professional-info .md-button{position:absolute;right:0;top:0;color:#05668D;background-color:#05668D;font-weight:400;font-size:12px;}
+.hirepro-container .request-given .request .time .md-button:nth-of-type(2), .hirepro-container .request-given .request .info .md-button:nth-of-type(2), .hirepro-container .request-given .request .professional-info .md-button:nth-of-type(2), .hirepro-container .request-received .request .time .md-button:nth-of-type(2), .hirepro-container .request-received .request .info .md-button:nth-of-type(2), .hirepro-container .request-received .request .professional-info .md-button:nth-of-type(2), .becomepro-container .request-given .request .time .md-button:nth-of-type(2), .becomepro-container .request-given .request .info .md-button:nth-of-type(2), .becomepro-container .request-given .request .professional-info .md-button:nth-of-type(2), .becomepro-container .request-received .request .time .md-button:nth-of-type(2), .becomepro-container .request-received .request .info .md-button:nth-of-type(2), .becomepro-container .request-received .request .professional-info .md-button:nth-of-type(2){right:50px;}
+.hirepro-container .request-given .request .time .md-button md-icon, .hirepro-container .request-given .request .info .md-button md-icon, .hirepro-container .request-given .request .professional-info .md-button md-icon, .hirepro-container .request-received .request .time .md-button md-icon, .hirepro-container .request-received .request .info .md-button md-icon, .hirepro-container .request-received .request .professional-info .md-button md-icon, .becomepro-container .request-given .request .time .md-button md-icon, .becomepro-container .request-given .request .info .md-button md-icon, .becomepro-container .request-given .request .professional-info .md-button md-icon, .becomepro-container .request-received .request .time .md-button md-icon, .becomepro-container .request-received .request .info .md-button md-icon, .becomepro-container .request-received .request .professional-info .md-button md-icon{height:auto;font-size:18px;}
+.hirepro-container .request-given .request .time .md-button[disabled], .hirepro-container .request-given .request .info .md-button[disabled], .hirepro-container .request-given .request .professional-info .md-button[disabled], .hirepro-container .request-received .request .time .md-button[disabled], .hirepro-container .request-received .request .info .md-button[disabled], .hirepro-container .request-received .request .professional-info .md-button[disabled], .becomepro-container .request-given .request .time .md-button[disabled], .becomepro-container .request-given .request .info .md-button[disabled], .becomepro-container .request-given .request .professional-info .md-button[disabled], .becomepro-container .request-received .request .time .md-button[disabled], .becomepro-container .request-received .request .info .md-button[disabled], .becomepro-container .request-received .request .professional-info .md-button[disabled]{opacity:0.5;}
+.hirepro-container .request-given .request .time .decoration, .hirepro-container .request-given .request .info .decoration, .hirepro-container .request-given .request .professional-info .decoration, .hirepro-container .request-received .request .time .decoration, .hirepro-container .request-received .request .info .decoration, .hirepro-container .request-received .request .professional-info .decoration, .becomepro-container .request-given .request .time .decoration, .becomepro-container .request-given .request .info .decoration, .becomepro-container .request-given .request .professional-info .decoration, .becomepro-container .request-received .request .time .decoration, .becomepro-container .request-received .request .info .decoration, .becomepro-container .request-received .request .professional-info .decoration{background-color:#05668D;margin-right:10px;display:flex;align-items:center;padding:0 15px;}
+.hirepro-container .request-given .request .time .decoration i, .hirepro-container .request-given .request .info .decoration i, .hirepro-container .request-given .request .professional-info .decoration i, .hirepro-container .request-received .request .time .decoration i, .hirepro-container .request-received .request .info .decoration i, .hirepro-container .request-received .request .professional-info .decoration i, .becomepro-container .request-given .request .time .decoration i, .becomepro-container .request-given .request .info .decoration i, .becomepro-container .request-given .request .professional-info .decoration i, .becomepro-container .request-received .request .time .decoration i, .becomepro-container .request-received .request .info .decoration i, .becomepro-container .request-received .request .professional-info .decoration i{font-size:60px;color:#fff;text-align:center;}
+.hirepro-container .request-given .request .time, .hirepro-container .request-given .request .info, .hirepro-container .request-received .request .time, .hirepro-container .request-received .request .info, .becomepro-container .request-given .request .time, .becomepro-container .request-given .request .info, .becomepro-container .request-received .request .time, .becomepro-container .request-received .request .info{width:440px;}
+.hirepro-container .request-given .request .professional-info, .hirepro-container .request-received .request .professional-info, .becomepro-container .request-given .request .professional-info, .becomepro-container .request-received .request .professional-info{flex-grow:2;}
+.hirepro-container .professional-panel, .becomepro-container .professional-panel{min-height:85vh;}
+.hirepro-container .professional-panel md-toolbar .mdi, .becomepro-container .professional-panel md-toolbar .mdi{font-size:26px;}
+.hirepro-container .professional-panel md-toolbar md-icon, .becomepro-container .professional-panel md-toolbar md-icon{margin:0 10px;}
+.hirepro-container .professional-panel md-fab-toolbar .md-button, .becomepro-container .professional-panel md-fab-toolbar .md-button{font-size:12px;}
+.hirepro-container .professional-panel md-fab-toolbar .md-button[disabled], .becomepro-container .professional-panel md-fab-toolbar .md-button[disabled]{color:rgba(255, 255, 255, 0.3);}
+.hirepro-container .professional-panel md-fab-toolbar md-icon, .becomepro-container .professional-panel md-fab-toolbar md-icon{height:auto;font-size:22px;}
+.hirepro-container .professional-panel article, .becomepro-container .professional-panel article{margin-top:10px;width:50%;margin:0 auto;}
+.hirepro-container .professional-panel article .add-offer, .hirepro-container .professional-panel article .edit-offer, .becomepro-container .professional-panel article .add-offer, .becomepro-container .professional-panel article .edit-offer{width:100%;margin-top:5px;background-color:#CCE5FB;min-height:50vh;color:#05668D;}
+.hirepro-container .professional-panel article .add-offer legend, .hirepro-container .professional-panel article .add-offer fieldset, .hirepro-container .professional-panel article .edit-offer legend, .hirepro-container .professional-panel article .edit-offer fieldset, .becomepro-container .professional-panel article .add-offer legend, .becomepro-container .professional-panel article .add-offer fieldset, .becomepro-container .professional-panel article .edit-offer legend, .becomepro-container .professional-panel article .edit-offer fieldset{border-color:#028090;}
+.hirepro-container .professional-panel article .add-offer .wrapper, .hirepro-container .professional-panel article .edit-offer .wrapper, .becomepro-container .professional-panel article .add-offer .wrapper, .becomepro-container .professional-panel article .edit-offer .wrapper{padding:5px 20px;}
+.hirepro-container .professional-panel article .add-offer .wrapper ul li, .hirepro-container .professional-panel article .edit-offer .wrapper ul li, .becomepro-container .professional-panel article .add-offer .wrapper ul li, .becomepro-container .professional-panel article .edit-offer .wrapper ul li{list-style-type:none;font-size:16px;font-weight:800;color:#05668D;}
+.hirepro-container .professional-panel article .add-offer .wrapper ul li .container-icons, .hirepro-container .professional-panel article .edit-offer .wrapper ul li .container-icons, .becomepro-container .professional-panel article .add-offer .wrapper ul li .container-icons, .becomepro-container .professional-panel article .edit-offer .wrapper ul li .container-icons{width:80%;margin:0 auto;}
+.hirepro-container .professional-panel article .add-offer .wrapper ul li .container-icons span, .hirepro-container .professional-panel article .edit-offer .wrapper ul li .container-icons span, .becomepro-container .professional-panel article .add-offer .wrapper ul li .container-icons span, .becomepro-container .professional-panel article .edit-offer .wrapper ul li .container-icons span{display:block;background-color:#028090;padding:3px 8px;border-bottom-right-radius:10px;border-top-right-radius:10px;font-size:22px;margin:30px 20px;color:#CCE5FB;box-shadow:2px 5px 10px #A29999;position:relative;}
+.hirepro-container .professional-panel article .add-offer .wrapper ul li .container-icons span md-icon, .hirepro-container .professional-panel article .edit-offer .wrapper ul li .container-icons span md-icon, .becomepro-container .professional-panel article .add-offer .wrapper ul li .container-icons span md-icon, .becomepro-container .professional-panel article .edit-offer .wrapper ul li .container-icons span md-icon{width:50px;height:50px;position:absolute;top:-8px;left:-42px;fill:#028090;}
+.hirepro-container .professional-panel article .add-offer .wrapper ul li div.weekdays, .hirepro-container .professional-panel article .edit-offer .wrapper ul li div.weekdays, .becomepro-container .professional-panel article .add-offer .wrapper ul li div.weekdays, .becomepro-container .professional-panel article .edit-offer .wrapper ul li div.weekdays{margin:10px 5px;display:inline-block;text-align:center;}
+.hirepro-container .professional-panel article .add-offer .wrapper ul li div.weekdays span, .hirepro-container .professional-panel article .edit-offer .wrapper ul li div.weekdays span, .becomepro-container .professional-panel article .add-offer .wrapper ul li div.weekdays span, .becomepro-container .professional-panel article .edit-offer .wrapper ul li div.weekdays span{display:inline-block;background-color:#FBC02D;padding:3px 8px;border-radius:5px;font-size:12px;margin:2px;color:#CCE5FB;box-shadow:2px 2px 10px #A29999;display:inline-block;position:relative;}
+.hirepro-container .professional-panel article .add-offer fieldset, .hirepro-container .professional-panel article .edit-offer fieldset, .becomepro-container .professional-panel article .add-offer fieldset, .becomepro-container .professional-panel article .edit-offer fieldset{border-style:solid;border-radius:2px;margin:20px 0;padding:20px;}
+.hirepro-container .professional-panel article .add-offer md-input-container input, .hirepro-container .professional-panel article .edit-offer md-input-container input, .becomepro-container .professional-panel article .add-offer md-input-container input, .becomepro-container .professional-panel article .edit-offer md-input-container input{color:#05668D;}
+.hirepro-container .professional-panel article .add-offer md-input-container.md-default-theme.md-input-invalid label, .hirepro-container .professional-panel article .add-offer md-input-container.md-input-invalid label, .hirepro-container .professional-panel article .add-offer md-input-container.md-default-theme.md-input-invalid .md-input-message-animation, .hirepro-container .professional-panel article .add-offer md-input-container.md-input-invalid .md-input-message-animation, .hirepro-container .professional-panel article .add-offer md-input-container.md-default-theme.md-input-invalid .md-char-counter, .hirepro-container .professional-panel article .add-offer md-input-container.md-input-invalid .md-char-counter, .hirepro-container .professional-panel article .edit-offer md-input-container.md-default-theme.md-input-invalid label, .hirepro-container .professional-panel article .edit-offer md-input-container.md-input-invalid label, .hirepro-container .professional-panel article .edit-offer md-input-container.md-default-theme.md-input-invalid .md-input-message-animation, .hirepro-container .professional-panel article .edit-offer md-input-container.md-input-invalid .md-input-message-animation, .hirepro-container .professional-panel article .edit-offer md-input-container.md-default-theme.md-input-invalid .md-char-counter, .hirepro-container .professional-panel article .edit-offer md-input-container.md-input-invalid .md-char-counter, .becomepro-container .professional-panel article .add-offer md-input-container.md-default-theme.md-input-invalid label, .becomepro-container .professional-panel article .add-offer md-input-container.md-input-invalid label, .becomepro-container .professional-panel article .add-offer md-input-container.md-default-theme.md-input-invalid .md-input-message-animation, .becomepro-container .professional-panel article .add-offer md-input-container.md-input-invalid .md-input-message-animation, .becomepro-container .professional-panel article .add-offer md-input-container.md-default-theme.md-input-invalid .md-char-counter, .becomepro-container .professional-panel article .add-offer md-input-container.md-input-invalid .md-char-counter, .becomepro-container .professional-panel article .edit-offer md-input-container.md-default-theme.md-input-invalid label, .becomepro-container .professional-panel article .edit-offer md-input-container.md-input-invalid label, .becomepro-container .professional-panel article .edit-offer md-input-container.md-default-theme.md-input-invalid .md-input-message-animation, .becomepro-container .professional-panel article .edit-offer md-input-container.md-input-invalid .md-input-message-animation, .becomepro-container .professional-panel article .edit-offer md-input-container.md-default-theme.md-input-invalid .md-char-counter, .becomepro-container .professional-panel article .edit-offer md-input-container.md-input-invalid .md-char-counter{color:#028090;}
+.hirepro-container .professional-panel article .add-offer md-input-container.md-default-theme label.md-required:after, .hirepro-container .professional-panel article .add-offer md-input-container label.md-required:after, .hirepro-container .professional-panel article .edit-offer md-input-container.md-default-theme label.md-required:after, .hirepro-container .professional-panel article .edit-offer md-input-container label.md-required:after, .becomepro-container .professional-panel article .add-offer md-input-container.md-default-theme label.md-required:after, .becomepro-container .professional-panel article .add-offer md-input-container label.md-required:after, .becomepro-container .professional-panel article .edit-offer md-input-container.md-default-theme label.md-required:after, .becomepro-container .professional-panel article .edit-offer md-input-container label.md-required:after{color:#05668D;}
+.hirepro-container .professional-panel article .add-offer md-input-container.md-default-theme.md-input-invalid .md-input, .hirepro-container .professional-panel article .add-offer md-input-container.md-input-invalid .md-input, .hirepro-container .professional-panel article .edit-offer md-input-container.md-default-theme.md-input-invalid .md-input, .hirepro-container .professional-panel article .edit-offer md-input-container.md-input-invalid .md-input, .becomepro-container .professional-panel article .add-offer md-input-container.md-default-theme.md-input-invalid .md-input, .becomepro-container .professional-panel article .add-offer md-input-container.md-input-invalid .md-input, .becomepro-container .professional-panel article .edit-offer md-input-container.md-default-theme.md-input-invalid .md-input, .becomepro-container .professional-panel article .edit-offer md-input-container.md-input-invalid .md-input{border-color:#028090;}
+.hirepro-container .professional-panel article .add-offer h2, .hirepro-container .professional-panel article .edit-offer h2, .becomepro-container .professional-panel article .add-offer h2, .becomepro-container .professional-panel article .edit-offer h2{font-size:40px;font-weight:800;margin-bottom:30px;color:#CCE5FB;padding:20px;background-color:#05668D;}
+.hirepro-container .professional-panel article .add-offer .md-button, .hirepro-container .professional-panel article .edit-offer .md-button, .becomepro-container .professional-panel article .add-offer .md-button, .becomepro-container .professional-panel article .edit-offer .md-button{color:#05668D;}
+.hirepro-container .professional-panel article .add-offer .md-button.md-default-theme.md-raised, .hirepro-container .professional-panel article .add-offer .md-button.md-raised, .hirepro-container .professional-panel article .edit-offer .md-button.md-default-theme.md-raised, .hirepro-container .professional-panel article .edit-offer .md-button.md-raised, .becomepro-container .professional-panel article .add-offer .md-button.md-default-theme.md-raised, .becomepro-container .professional-panel article .add-offer .md-button.md-raised, .becomepro-container .professional-panel article .edit-offer .md-button.md-default-theme.md-raised, .becomepro-container .professional-panel article .edit-offer .md-button.md-raised{color:#05668D;}
+.hirepro-container .professional-panel article .add-offer .step-one .pricesField, .hirepro-container .professional-panel article .add-offer .step-two .pricesField, .hirepro-container .professional-panel article .edit-offer .step-one .pricesField, .hirepro-container .professional-panel article .edit-offer .step-two .pricesField, .becomepro-container .professional-panel article .add-offer .step-one .pricesField, .becomepro-container .professional-panel article .add-offer .step-two .pricesField, .becomepro-container .professional-panel article .edit-offer .step-one .pricesField, .becomepro-container .professional-panel article .edit-offer .step-two .pricesField{padding:15px 20px;background-color:#E3E3E3;}
+.hirepro-container .professional-panel article .add-offer .step-one .pricesField md-input-container, .hirepro-container .professional-panel article .add-offer .step-two .pricesField md-input-container, .hirepro-container .professional-panel article .edit-offer .step-one .pricesField md-input-container, .hirepro-container .professional-panel article .edit-offer .step-two .pricesField md-input-container, .becomepro-container .professional-panel article .add-offer .step-one .pricesField md-input-container, .becomepro-container .professional-panel article .add-offer .step-two .pricesField md-input-container, .becomepro-container .professional-panel article .edit-offer .step-one .pricesField md-input-container, .becomepro-container .professional-panel article .edit-offer .step-two .pricesField md-input-container{width:400px;}
+.hirepro-container .professional-panel article .add-offer .asterisk, .hirepro-container .professional-panel article .edit-offer .asterisk, .becomepro-container .professional-panel article .add-offer .asterisk, .becomepro-container .professional-panel article .edit-offer .asterisk{font-weight:100;font-size:10px;}
+.hirepro-container .professional-panel article .add-offer .asterisk span, .hirepro-container .professional-panel article .edit-offer .asterisk span, .becomepro-container .professional-panel article .add-offer .asterisk span, .becomepro-container .professional-panel article .edit-offer .asterisk span{color:#FF0000;font-weight:900;}
+.hirepro-container .professional-panel article .add-offer .step-one.ng-hide-remove, .hirepro-container .professional-panel article .add-offer .step-two.ng-hide-remove, .hirepro-container .professional-panel article .edit-offer .step-one.ng-hide-remove, .hirepro-container .professional-panel article .edit-offer .step-two.ng-hide-remove, .becomepro-container .professional-panel article .add-offer .step-one.ng-hide-remove, .becomepro-container .professional-panel article .add-offer .step-two.ng-hide-remove, .becomepro-container .professional-panel article .edit-offer .step-one.ng-hide-remove, .becomepro-container .professional-panel article .edit-offer .step-two.ng-hide-remove{animation-name:slideLeftIn;animation-duration:0.3s;animation-timing-function:ease;animation-delay:0.3s;animation-fill-mode:backwards;}
+.hirepro-container .professional-panel article .add-offer .step-one.ng-hide-add, .hirepro-container .professional-panel article .add-offer .step-one.ng-hide-add, .hirepro-container .professional-panel article .edit-offer .step-one.ng-hide-add, .hirepro-container .professional-panel article .edit-offer .step-one.ng-hide-add, .becomepro-container .professional-panel article .add-offer .step-one.ng-hide-add, .becomepro-container .professional-panel article .add-offer .step-one.ng-hide-add, .becomepro-container .professional-panel article .edit-offer .step-one.ng-hide-add, .becomepro-container .professional-panel article .edit-offer .step-one.ng-hide-add{animation-name:slideLeftOut;animation-duration:0.2s;animation-timing-function:ease;}
+.add-offer.ng-hide-remove, .edit-offer.ng-hide-remove{animation-name:slideUpIn;animation-duration:0.5s;animation-timing-function:ease;animation-fill-mode:backwards;animation-delay:0.5s;}
+.add-offer.ng-hide-add, .edit-offer.ng-hide-add{animation-name:slideUpOut;animation-duration:0.3s;animation-timing-function:ease;}
+@keyframes slideUpIn{0%{opacity:0;transform:translateY(50%);}
+}
+@keyframes slideUpOut{100%{opacity:0;transform:translateY(-50%);}
+}
+@keyframes slideLeftIn{0%{opacity:0;transform:translateX(50%);}
+}
+@keyframes slideLeftOut{100%{opacity:0;transform:translateX(-50%);}
+}
+.offer.ng-leave.ng-leave-active, .offer.ng-move, .offer.ng-enter{opacity:0;}
+md-dialog.profilerev{width:50%;background-color:#E3E3E3;padding:0;}
+md-dialog.profilerev md-toolbar.md-default-theme:not(.md-menu-toolbar), md-dialog.profilerev md-toolbar:not(.md-menu-toolbar){background-color:#028090;color:#CCE5FB;position:relative;padding:15px 0;}
+md-dialog.profilerev md-toolbar.md-default-theme:not(.md-menu-toolbar) h2, md-dialog.profilerev md-toolbar:not(.md-menu-toolbar) h2{font-size:50px;font-weight:800;}
+md-dialog.profilerev .md-dialog-content{padding:0;}
+md-dialog.profilerev .profile-reviews{margin-top:50px;}
+md-dialog.profilerev .profile-reviews .profile-photo{width:128px;height:128px;position:absolute;top:5%;right:5%;z-index:3;}
+md-dialog.profilerev .profile-reviews .profile-photo img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
+md-dialog.profilerev .profile-reviews h2{font-size:38px;font-weight:800;margin-left:10px;margin-top:20px;color:#05668D;margin-bottom:15px;}
+md-dialog.profilerev .profile-reviews .about{margin:25px 0 5px 10px;}
+md-dialog.profilerev .profile-reviews .about span{font-size:12px;}
+md-dialog.profilerev .profile-reviews .about p{margin:10px 0 0 10px;max-width:350px;}
+md-dialog.profilerev .profile-reviews .about p span{font-size:16px;color:#028090;line-height:15px;font-weight:400;}
+md-dialog.profilerev .profile-reviews .no-revs{text-align:center;color:#A29999;font-size:30px;font-weight:900;padding:25px 0;}
+md-dialog.profilerev .profile-reviews .no-revs i{font-size:130px;}
+md-dialog.profilerev .profile-reviews .container{max-height:300px;overflow-y:scroll;}
+md-dialog.profilerev .profile-reviews .container md-list-item{background-color:#fff;}
+md-dialog.profilerev .profile-reviews .container md-list-item .md-avatar, md-dialog.profilerev .profile-reviews .container md-list-item md-list-item .md-list-item-inner .md-avatar{width:68px;height:68px;}
+md-dialog.profilerev .profile-reviews .container md-list-item img{object-fit:cover;width:100px;height:100px;margin-right:20px;border-radius:50%;}
+md-dialog.profilerev .profile-reviews .container md-list-item .md-list-item-text{box-sizing:border-box;padding:15px 0;}
+md-dialog.profilerev .profile-reviews .container md-list-item .md-list-item-text em{font-size:12px;}
+md-dialog.writerev{width:60%;background-color:#E3E3E3;}
+md-dialog.writerev md-toolbar.md-default-theme:not(.md-menu-toolbar), md-dialog.writerev md-toolbar:not(.md-menu-toolbar){background-color:#028090;color:#CCE5FB;position:relative;padding:15px 0;}
+md-dialog.writerev md-toolbar.md-default-theme:not(.md-menu-toolbar) h2, md-dialog.writerev md-toolbar:not(.md-menu-toolbar) h2{font-size:50px;font-weight:800;}
+md-dialog.writerev md-input-container.md-block{width:400px;}
+md-dialog.writerev .text-inputs{margin-top:50px;}
+md-dialog.admin-show-offer{width:60%;background-color:#E3E3E3;}
+md-dialog.admin-show-offer md-toolbar.md-default-theme:not(.md-menu-toolbar), md-dialog.admin-show-offer md-toolbar:not(.md-menu-toolbar){background-color:#028090;color:#CCE5FB;position:relative;padding:15px 0;}
+md-dialog.admin-show-offer md-toolbar.md-default-theme:not(.md-menu-toolbar) h2, md-dialog.admin-show-offer md-toolbar:not(.md-menu-toolbar) h2{font-size:50px;font-weight:800;}
+md-dialog.admin-show-offer .md-button[disabled]{opacity:0.5;}
+md-dialog.change-data{width:60%;background-color:#E3E3E3;}
+md-dialog.change-data md-toolbar.md-default-theme:not(.md-menu-toolbar), md-dialog.change-data md-toolbar:not(.md-menu-toolbar){background-color:#028090;color:#CCE5FB;position:relative;padding:15px 0;}
+md-dialog.change-data md-toolbar.md-default-theme:not(.md-menu-toolbar) h2, md-dialog.change-data md-toolbar:not(.md-menu-toolbar) h2{font-size:50px;font-weight:800;}
+md-dialog.change-data .md-button[disabled]{opacity:0.5;}
+md-dialog.change-data md-input-container:not(.md-input-has-value) input:not(:focus), md-dialog.change-data md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-ampm-field, md-dialog.change-data md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-day-field, md-dialog.change-data md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-hour-field, md-dialog.change-data md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-millisecond-field, md-dialog.change-data md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-minute-field, md-dialog.change-data md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-month-field, md-dialog.change-data md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-second-field, md-dialog.change-data md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-text, md-dialog.change-data md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-week-field, md-dialog.change-data md-input-container:not(.md-input-has-value) input:not(:focus)::-webkit-datetime-edit-year-field{color:#05668D;}
+md-dialog.change-data aps-upload-file .md-button{color:#CCE5FB;}
+md-dialog.change-data .md-dialog-content{display:flex;justify-content:center;flex-wrap:no-wrap;}
+md-dialog.change-data .md-dialog-content h2{color:#028090;}
+md-dialog.change-data .md-dialog-content .change-password{width:300px;margin-right:30px;}
+md-dialog.change-data .md-dialog-content .change-password.FBToken{opacity:0.7;}
+md-dialog.change-data .md-dialog-content .change-personal-data{flex-grow:2;}
+md-dialog.change-data .md-dialog-content .change-personal-data input[type='file']{outline:none;border:none;}
+md-dialog.change-data .md-dialog-content .change-personal-data .message{color:#028090;font-size:12px;}
+md-dialog.change-data .md-dialog-content .change-personal-data .message md-icon{color:#028090;font-size:18px;height:auto;}
+md-dialog.book-pro{width:50%;}
+md-dialog.book-pro .credit-card{background-color:#FFF;box-sizing:border-box;padding:30px;}
+md-dialog.book-pro .credit-card md-input-container{vertical-align:top;}
+md-dialog.book-pro .credit-card md-input-container label{color:#05668D;}
+md-dialog.book-pro .bank-choice ul{display:flex;justify-content:center;flex-wrap:wrap;}
+md-dialog.book-pro .bank-choice ul li{outline:none;display:inline-block;width:120px;height:50px;margin:10px 15px;display:flex;flex-direction:column;justify-content:center;align-items:center;cursor:pointer;}
+md-dialog.book-pro .bank-choice ul li img{max-width:120px;max-height:50px;display:block;object-fit:contain;margin:0 auto;opacity:0.5;}
+md-dialog.book-pro .bank-choice ul li div{font-size:8px;margin-top:5px;}
+md-dialog.book-pro .bank-choice ul li.noOpacity-remove{transition-duration:0.5s;animation-duration:0.5s;}
+md-dialog.book-pro .bank-choice ul li.noOpacity{transition-duration:0.5s;transform:scale(1.1);}
+md-dialog.book-pro .bank-choice ul li.noOpacity img{opacity:1;}
+md-dialog.book-pro .md-button:first-of-type{color:#028090;}
+md-dialog.book-pro .md-button.payu{border:0px;width:250px;margin:20px 0;background:url("../img/button.png");background-repeat:no-repeat;background-size:cover;background-position-y:50%;cursor:pointer;}
+md-dialog.book-pro .md-button.payu[disabled]{opacity:0.5;}
+md-dialog.book-pro md-checkbox{margin-top:15px;}
+md-dialog.book-pro h1{background-color:#05668D;color:#CCE5FB;padding:30px 15px;font-size:40px;}
+md-dialog.book-pro .professional-summary{margin:20px 5px;padding:20px 10px;}
+md-dialog.book-pro .professional-summary h2{margin-bottom:20px;font-size:26px;}
+md-dialog.book-pro .professional-summary ul{background-color:#FFF;padding:30px 10px;}
+md-dialog.book-pro .professional-summary ul li{list-style-type:none;}
+md-dialog.book-pro .professional-summary ul li span:first-of-type{color:#028090;font-weight:800;margin-right:5px;}
+md-dialog.book-pro .no-professional-info, md-dialog.book-pro .different-info{margin:25px 0;}
+md-dialog.book-pro .no-professional-info form, md-dialog.book-pro .different-info form{background-color:#fff;padding:10px 10px;}
+md-dialog.book-pro .no-professional-info form md-input-container input, md-dialog.book-pro .different-info form md-input-container input{color:#05668D;}
+md-dialog.book-pro .no-professional-info form md-input-container.md-default-theme.md-input-invalid label, md-dialog.book-pro .no-professional-info form md-input-container.md-input-invalid label, md-dialog.book-pro .no-professional-info form md-input-container.md-default-theme.md-input-invalid .md-input-message-animation, md-dialog.book-pro .no-professional-info form md-input-container.md-input-invalid .md-input-message-animation, md-dialog.book-pro .no-professional-info form md-input-container.md-default-theme.md-input-invalid .md-char-counter, md-dialog.book-pro .no-professional-info form md-input-container.md-input-invalid .md-char-counter, md-dialog.book-pro .different-info form md-input-container.md-default-theme.md-input-invalid label, md-dialog.book-pro .different-info form md-input-container.md-input-invalid label, md-dialog.book-pro .different-info form md-input-container.md-default-theme.md-input-invalid .md-input-message-animation, md-dialog.book-pro .different-info form md-input-container.md-input-invalid .md-input-message-animation, md-dialog.book-pro .different-info form md-input-container.md-default-theme.md-input-invalid .md-char-counter, md-dialog.book-pro .different-info form md-input-container.md-input-invalid .md-char-counter{color:#028090;}
+md-dialog.book-pro .no-professional-info form md-input-container.md-default-theme label.md-required:after, md-dialog.book-pro .no-professional-info form md-input-container label.md-required:after, md-dialog.book-pro .different-info form md-input-container.md-default-theme label.md-required:after, md-dialog.book-pro .different-info form md-input-container label.md-required:after{color:#05668D;}
+md-dialog.book-pro .no-professional-info form md-input-container.md-default-theme.md-input-invalid .md-input, md-dialog.book-pro .no-professional-info form md-input-container.md-input-invalid .md-input, md-dialog.book-pro .different-info form md-input-container.md-default-theme.md-input-invalid .md-input, md-dialog.book-pro .different-info form md-input-container.md-input-invalid .md-input{border-color:#028090;}
+md-dialog.book-pro .no-professional-info form h2, md-dialog.book-pro .different-info form h2{margin:10px 0;}
+form[name='projectForm'] h2{margin:20px 0 10px 10px;color:#05668D;font-weight:900;font-size:16px;}
+.svg-container{margin:20px 0 30px 0;}
+.svg-container .md-button.md-mini{line-height:2.7rem;width:2.7rem;height:2.7rem;background-color:#CCE5FB;}
+.svg-container .md-button.md-mini:hover{background-color:#FBC02D;}
+.svg-container .md-button.md-mini.selected{animation-name:btnPop;animation-duration:0.5s;animation-timing-function:ease;animation-fill-mode:forwards;box-shadow:0px 5px 15px #A29999;transition-duration:0.5s;}
+@keyframes btnPop{100%{transform:translateY(-10%) scale(1.1);background-color:#FBC02D;}
+}
+.svg-container .md-button.md-mini.selected-remove{animation-duration:0.5s;animation-name:btnUnPop;animation-timing-function:ease;}
+@keyframes btnUnPop{0%{transform:translateY(-10%) scale(1.1);background-color:#FBC02D;}
+}
+.hirepro-container .find-pro aside md-icon.med{font-size:50px;width:110%;height:100%;fill:#05668D;position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);}
+.hirepro-container .find-pro aside md-icon.med.selected{fill:#028090;}
+@media (max-width:1000px){.hirepro-container .request-given .request, .hirepro-container .request-received .request, .becomepro-container .request-given .request, .becomepro-container .request-received .request{flex-direction:column;}
+.hirepro-container .request-given .request .time, .hirepro-container .request-given .request .info, .hirepro-container .request-given .request .professional-info, .hirepro-container .request-received .request .time, .hirepro-container .request-received .request .info, .hirepro-container .request-received .request .professional-info, .becomepro-container .request-given .request .time, .becomepro-container .request-given .request .info, .becomepro-container .request-given .request .professional-info, .becomepro-container .request-received .request .time, .becomepro-container .request-received .request .info, .becomepro-container .request-received .request .professional-info{width:100%;}
+.hirepro-container .find-pro, .becomepro-container .find-pro{flex-wrap:wrap;flex-direction:column reverse;}
+.hirepro-container .find-pro article, .becomepro-container .find-pro article{width:100%;order:2;margin:0;}
+.hirepro-container .find-pro aside, .becomepro-container .find-pro aside{order:1;width:100%;}
+.hirepro-container .find-pro aside .button-container .md-button, .becomepro-container .find-pro aside .button-container .md-button{margin:20px 0;}
+.what-choice-container .md-button{width:100%;margin:0;}
+}
+@media (max-width:768px){.what-choice-container{display:block;overflow:hidden;}
+.what-choice-container .md-button{display:block;margin:10px 0;height:250px;}
+.what-choice-container .md-button:first-of-type{margin-top:70px;}
+.svg-container{margin:20px 0 30px 0;}
+.svg-container .md-button.md-mini{line-height:3.5rem;width:3.5rem;height:3.5rem;}
+.hirepro-container .account .credentials, .becomepro-container .account .credentials{width:100%;}
+.hirepro-container .account .credentials md-card md-card-title md-card-title-media .md-media-lg, .becomepro-container .account .credentials md-card md-card-title md-card-title-media .md-media-lg{width:120px;height:120px;}
+.hirepro-container .professional-panel article .edit-offer .wrapper ul li .container-icons span, .becomepro-container .professional-panel article .edit-offer .wrapper ul li .container-icons span{font-size:13px;}
+.hirepro-container .professional-panel article .edit-offer .wrapper ul li .container-icons span md-icon, .becomepro-container .professional-panel article .edit-offer .wrapper ul li .container-icons span md-icon{top:-8px;height:40px;width:40px;left:-32px;}
+.hirepro-container .find-pro article .container .offer, .becomepro-container .find-pro article .container .offer{flex-direction:column;}
+.hirepro-container .find-pro article .container .offer .price, .becomepro-container .find-pro article .container .offer .price{width:auto;flex-grow:2;min-height:130px;}
+.hirepro-container md-nav-bar .md-nav-item:first-of-type, .becomepro-container md-nav-bar .md-nav-item:first-of-type{margin-left:0;}
+.hirepro-container md-nav-bar .md-button, .becomepro-container md-nav-bar .md-button{width:30vw;}
+md-dialog.writerev{width:100%;max-width:none;}
+md-dialog.writerev md-toolbar.md-default-theme:not(.md-menu-toolbar) h2, md-dialog.writerev md-toolbar:not(.md-menu-toolbar) h2{font-size:30px;}
+md-dialog.writerev md-input-container.md-block{width:100%;}
+md-dialog.book-pro{width:100%;max-width:none;}
+md-dialog.change-data{width:100%;max-width:none;}
+md-dialog.profilerev{width:100%;max-width:none;}
+md-dialog.profilerev md-toolbar:not(.md-menu-toolbar) h2{font-size:30px;}
+md-dialog.profilerev .profile-reviews .profile-photo{top:10%;}
+md-dialog.profilerev .profile-reviews .about p{max-width:50%;}
+md-dialog.profilerev .profile-reviews h2{font-size:28px;}
+.becomepro-container .professional-panel article{width:100%;}
+.becomepro-container .professional-panel md-toolbar .md-button{width:25vw;}
+}
+@media (max-width:500px){.hirepro-container .find-pro article .container .offer .general-info .profile-photo{float:none;}
+}
+.how-it-works.becomeProChoice .become-pro .content .box .mdi, .how-it-works.hireProChoice .hire-pro .content .box .mdi{transition-duration:1s;}
+.how-it-works.becomeProChoice .become-pro .content .box .mdi:hover, .how-it-works.hireProChoice .hire-pro .content .box .mdi:hover{color:#FBC02D;}
+.rules-container{min-height:100vh;background-color:#FBC02D;background:radial-gradient(circle at left, #FBC02D calc(50% - 1px), #028090 calc(50% - 1px));background-size:250%;background-position:0% 50%;height:100vh;-webkit-animation:wowSuchFooter 1s ease;-moz-animation:wowSuchFooter 1s ease;animation:wowSuchFooter 1s ease;box-shadow:0px 0px 10px #05668D;flex-direction:row;overflow-x:hidden;}
+.rules-container h1{font-size:50px;margin-top:70px;margin-left:20px;color:#05668D;font-weight:800;}
+.rules-container .terms{margin-left:20px;}
+.rules-container .terms .md-button{color:#05668D;}
+.how-it-works{min-height:100vh;background:radial-gradient(circle at 50% 50%, #028090 calc(50% - 1px), #05668D calc(50% - 1px));background:radial-gradient(circle at 50% 50%, #028090 calc(50% - 1px), #05668D calc(50% - 1px));background-size:350%;display:flex;flex-direction:row;justify-content:center;overflow-x:hidden;-webkit-animation:gradient-anim 1s ease-out forwards;-moz-animation:gradient-anim 1s ease-out forwards;animation:gradient-anim 1s ease-out forwards;}
+@-webkit-keyframes gradient-anim{100%{background-position:15% 90%;}
+}
+@-moz-keyframes gradient-anim{100%{background-position:15% 90%;}
+}
+@keyframes gradient-anim{100%{background-position:15% 90%;}
+}
+.how-it-works .floating-contact{position:fixed;right:10px;top:70px;z-index:999;}
+.how-it-works .floating-contact .md-button{background-color:#FBC02D;width:60px;height:60px;}
+.how-it-works .floating-contact .md-button:hover{background-color:#FBC02D;opacity:0.6;}
+.how-it-works .floating-contact .md-button:hover md-icon{transform:scale(1.3);}
+.how-it-works .floating-contact .md-button md-icon{transition-duration:0.5s;height:auto;width:auto;font-size:35px;color:#05668D;}
+.how-it-works .floating-contact .md-button md-icon.rules{height:24px;}
+.how-it-works article{width:100%;margin-top:70px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;}
+.how-it-works article:first-of-type h1{border-top:10px solid #028090;}
+.how-it-works article:last-of-type h1{border-top:10px solid #05668D;}
+.how-it-works article h1{font-size:52px;color:#CCE5FB;width:390px;text-align:left;line-height:58px;padding:15px 0;outline:none;cursor:pointer;}
+.how-it-works article h1:hover{opacity:0.8;}
+.how-it-works.becomeProChoice{-webkit-animation:bPC 1s ease forwards;-moz-animation:bPC 1s ease forwards;animation:bPC 1s ease forwards;}
+@-moz-keyframes bPC{0%{background-position:15% 100%;}
+100%{background-position:0% 0%;}
+}
+@-webkit-keyframes bPC{0%{background-position:15% 100%;}
+100%{background-position:0% 0%;}
+}
+@keyframes bPC{0%{background-position:15% 100%;}
+100%{background-position:-10% 0%;}
+}
+.how-it-works.becomeProChoice .hire-pro{-webkit-animation:hPdissappear 1s ease forwards;-moz-animation:hPdissappear 1s ease forwards;animation:hPdissappear 1s ease forwards;}
+@-moz-keyframes hPdissappear{100%{flex-grow:0.0001;opacity:0;visibility:hidden;width:0;}
+}
+@-webkit-keyframes hPdissappear{100%{flex-grow:0.0001;opacity:0;visibility:hidden;width:0;}
+}
+@keyframes hPdissappear{100%{flex-grow:0.0001;opacity:0;visibility:hidden;width:0;}
+}
+.how-it-works.becomeProChoice .become-pro{-moz-animation:bPcenter 1s ease forwards;-webkit-animation:bPcenter 1s ease forwards;animation:bPcenter 1s ease forwards;}
+@-moz-keyframes bPcenter{70%{flex-grow:1;opacity:1;}
+}
+@-webkit-keyframes bPcenter{100%{flex-grow:1;opacity:1;}
+}
+@keyframes bPcenter{100%{flex-grow:1;opacity:1;}
+}
+.how-it-works.becomeProChoice .become-pro .content.ng-enter, .how-it-works.becomeProChoice .become-pro .content.ng-enter-active, .how-it-works.becomeProChoice .become-pro .content.ng-animate, .how-it-works.becomeProChoice .become-pro .content.ng-leave{display:none;animation-duration:0.2s;animation-delay:0s;}
+.how-it-works.becomeProChoice .become-pro .content{-moz-animation:fadeIn 1s ease forwards 1s;-webkit-animation:fadeIn 1s ease forwards 1s;animation:fadeIn 1s ease forwards 1s;opacity:0;height:0;visibility:hidden;display:none;flex-grow:0.001;display:flex;flex-wrap:wrap;flex-direction:row;justify-content:space-between;}
+@-moz-keyframes fadeIn{0%{opacity:0;}
+100%{opacity:1;flex-grow:1;flex-basis:1;visibility:visible;}
+}
+@-webkit-keyframes fadeIn{0%{opacity:0;}
+100%{opacity:1;flex-grow:1;flex-basis:1;visibility:visible;}
+}
+@keyframes fadeIn{0%{opacity:0;}
+100%{opacity:1;flex-grow:1;visibility:visible;}
+}
+.how-it-works.becomeProChoice .become-pro .content .box{margin:0 60px;width:300px;display:flex;flex-direction:column;justify-content:baseline;align-items:center;}
+.how-it-works.becomeProChoice .become-pro .content .box p{color:#CCE5FB;font-size:15px;margin-top:15px;text-align:left;line-height:28px;display:inline-block;font-weight:700;width:90%;}
+.how-it-works.becomeProChoice .become-pro .content .box h3{align-self:flex-start;color:#FBC02D;font-weight:900;padding:5px 0;text-transform:uppercase;font-size:23px;width:150px;text-align:left;padding-top:4px;}
+.how-it-works.becomeProChoice .become-pro .content .box h3:before{content:"";width:50px;height:7px;background-color:#05668D;display:block;margin-bottom:5px;animation-name:linea;animation-duration:1s;animation-delay:1s;animation-timing-function:ease;}
+@keyframes linea{0%{width:150px;}
+100%{width:50px;}
+}
+.how-it-works.becomeProChoice .become-pro .content .box .mdi{margin:30px 0;font-size:160px;color:#CCE5FB;}
+.how-it-works.hireProChoice{-webkit-animation:hPC 1s ease forwards;-moz-animation:hPC 1s ease forwards;animation:hPC 1s ease forwards;}
+@-moz-keyframes hPC{0%{background-position:15% 100%;}
+100%{background-position:40% 30%;}
+}
+@-webkit-keyframes hPC{0%{background-position:15% 100%;}
+100%{background-position:40% 30%;}
+}
+@keyframes hPC{0%{background-position:15% 100%;}
+100%{background-position:40% 30%;}
+}
+.how-it-works.hireProChoice .become-pro{-moz-animation:bPdissappear 1s ease forwards;-webkit-animation:bPdissappear 1s ease forwards;animation:bPdissappear 1s ease forwards;}
+@keyframes bPdissappear{100%{flex-grow:0.0001;opacity:0;display:none;width:0;}
+}
+.how-it-works.hireProChoice .hire-pro{-moz-animation:hPcenter 1s ease forwards;-webkit-animation:hPcenter 1s ease forwards;animation:hPcenter 1s ease forwards;}
+.how-it-works.hireProChoice .hire-pro h1{transition-duration:1s;}
+@-moz-keyframes hPcenter{70%{flex-grow:1;}
+}
+@-webkit-keyframes hPcenter{70%{flex-grow:1;}
+}
+@keyframes hPcenter{70%{flex-grow:1;}
+}
+.how-it-works.hireProChoice .hire-pro .content.ng-enter, .how-it-works.hireProChoice .hire-pro .content.ng-enter-active, .how-it-works.hireProChoice .hire-pro .content.ng-animate{display:none;animation-duration:0.2s;animation-delay:0s;}
+.how-it-works.hireProChoice .hire-pro .content{-moz-animation:fadeIn 1s ease forwards 1s;-webkit-animation:fadeIn 1s ease forwards 1s;animation:fadeIn 1s ease forwards 1s;opacity:0;height:0;visibility:hidden;display:none;flex-grow:0.001;display:flex;flex-wrap:wrap;flex-direction:row;justify-content:space-between;}
+@-moz-keyframes fadeIn{0%{opacity:0;}
+100%{opacity:1;flex-grow:1;visibility:visible;}
+}
+@-webkit-keyframes fadeIn{0%{opacity:0;}
+100%{opacity:1;flex-grow:1;visibility:visible;}
+}
+@keyframes fadeIn{0%{opacity:0;}
+100%{opacity:1;flex-grow:1;visibility:visible;}
+}
+.how-it-works.hireProChoice .hire-pro .content .services-description{align-self:flex-start;display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:40px auto;}
+.how-it-works.hireProChoice .hire-pro .content .services-description li{display:flex;justify-content:space-between;text-align:left;align-items:center;width:600px;min-height:200px;padding:15px 25px;background-color:#05668D;margin:10px;box-shadow:2px 3px 10px #4D4242;}
+.how-it-works.hireProChoice .hire-pro .content .services-description li .med{height:150px;width:150px;color:#FBC02D;margin:0 15px;border-radius:50%;box-shadow:2px 3px 10px #4D4242;transition-duration:0.5s;}
+.how-it-works.hireProChoice .hire-pro .content .services-description li .med:hover{transform:scale(1.1);color:#028090;}
+.how-it-works.hireProChoice .hire-pro .content .services-description li div{width:400px;font-weight:300;color:#CCE5FB;}
+.how-it-works.hireProChoice .hire-pro .content .services-description li div span{display:block;font-weight:600;color:#FBC02D;}
+.how-it-works.hireProChoice .hire-pro .content .services-description li div span:after{content:"";display:block;width:20px;height:4px;background-color:#028090;margin:8px 0;}
+.how-it-works.hireProChoice .hire-pro .content .box{margin:0 60px;width:300px;display:flex;flex-direction:column;justify-content:baseline;align-items:center;}
+.how-it-works.hireProChoice .hire-pro .content .box p{color:#CCE5FB;font-size:15px;margin-top:15px;text-align:left;line-height:28px;display:inline-block;font-weight:700;width:90%;}
+.how-it-works.hireProChoice .hire-pro .content .box h3{align-self:flex-start;color:#FBC02D;font-weight:900;padding:5px 0;text-transform:uppercase;font-size:23px;width:150px;text-align:left;padding-top:4px;}
+.how-it-works.hireProChoice .hire-pro .content .box h3:before{content:"";width:50px;height:7px;background-color:#05668D;display:block;margin-bottom:5px;-moz-animation:linea 1s ease 1s;-webkit-animation:linea 1s ease 1s;animation:linea 1s ease 1s;}
+@-moz-keyframes linea{0%{width:150px;}
+100%{width:50px;}
+}
+@-webkit-keyframes linea{0%{width:150px;}
+100%{width:50px;}
+}
+@keyframes linea{0%{width:150px;}
+100%{width:50px;}
+}
+.how-it-works.hireProChoice .hire-pro .content .box .mdi{margin:30px 0;font-size:160px;color:#CCE5FB;}
+footer{position:fixed;bottom:0;width:100%;box-shadow:0px 0px 20px #05668D;background-color:#FBC02D;background:radial-gradient(circle at left, #FBC02D calc(50% - 1px), transparent calc(50% - 1px));background-size:250%;background-position:0% 50%;height:100vh;-webkit-animation:wowSuchFooter 0.5s ease;-moz-animation:wowSuchFooter 0.5s ease;animation:wowSuchFooter 0.5s ease;box-shadow:0px 0px 10px #05668D;}
+footer .wrapper{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+footer .wrapper h2{font-size:65px;font-weight:900;color:#05668D;text-align:center;border-top:10px solid #028090;width:100px;animation-name:h2A;animation-duration:0.5s;animation-timing-function:ease;animation-delay:0.3s;animation-fill-mode:backwards;}
+@keyframes h2A{0%{transform:translateX(50%);opacity:0;}
+}
+footer .wrapper ul{margin-top:50px;text-align:center;}
+footer .wrapper ul li{list-style-type:none;font-weight:900;font-size:40px;color:#FBC02D;margin:10px 0;text-align-last:left;padding:0 10px;animation-name:liA;animation-duration:0.5s;background-color:#05668D;display:flex;align-items:center;animation-timing-function:ease;animation-fill-mode:backwards;}
+footer .wrapper ul li:nth-of-type(1){animation-delay:0.3s;}
+footer .wrapper ul li:nth-of-type(2){animation-delay:0.6s;}
+footer .wrapper ul li:nth-of-type(3){animation-delay:0.9s;}
+footer .wrapper ul li i{margin-right:20px;}
+footer .wrapper ul li div span{white-space:nowrap;}
+@-moz-keyframes liA{0%{opacity:0;transform:translateY(50%);}
+}
+@-webkit-keyframes liA{0%{opacity:0;transform:translateY(50%);}
+}
+@keyframes liA{0%{opacity:0;transform:translateY(50%);}
+}
+@-webkit-keyframes wowSuchFooter{0%{opacity:0;background-position:100% 100%;}
+}
+@-moz-keyframes wowSuchFooter{0%{opacity:0;background-position:100% 100%;}
+}
+@keyframes wowSuchFooter{0%{opacity:0;background-position:100% 100%;}
+}
+footer.ng-leave{-moz-animation:wowSuchFooterD 0.9s ease;-webkit-animation:wowSuchFooterD 0.9s ease;animation:wowSuchFooterD 0.9s ease;}
+@keyframes wowSuchFooterD{100%{opacity:0;}
+}
+@media (max-width:768px){.how-it-works article h1{font-size:30px;width:100px;height:50px;line-height:35px;}
+}
+@media (max-width:768px){footer .wrapper h2{font-size:40px;}
+footer .wrapper ul li{font-size:26px;}
+.how-it-works.becomeProChoice .become-pro .content .box, .how-it-works.hireProChoice .hire-pro .content .box{width:100%;}
+.how-it-works.becomeProChoice .become-pro .content .box .mdi, .how-it-works.hireProChoice .hire-pro .content .box .mdi{margin:100px 0 20px 0;font-size:200px;}
+.how-it-works.becomeProChoice .become-pro .content .box p, .how-it-works.hireProChoice .hire-pro .content .box p{font-size:20px;}
+.how-it-works.hireProChoice .hire-pro .content .box h3{text-align:center;width:100%;}
+.how-it-works.hireProChoice .hire-pro .content .box h3:before{margin:15px auto;}
+.how-it-works.hireProChoice .hire-pro .content .box p{width:100%;}
+.how-it-works.hireProChoice .hire-pro .content .services-description li{width:100%;flex-direction:column;padding:20px 0;margin:10px 0;}
+.how-it-works.hireProChoice .hire-pro .content .services-description li md-icon{margin:50px 0;}
+.how-it-works.hireProChoice .hire-pro .content .services-description li div{width:90%;margin-top:20px;}
+.how-it-works article h1{font-size:25px;line-height:25px;}
+@-webkit-keyframes gradient-anim{100%{background-position:100% 60%;}
+}
+@keyframes gradient-anim{100%{background-position:5% 20%;}
+}
+}
+.paymentStatus.resolved{animation:gradient 0.5s ease forwards;}
+@keyframes gradient{100%{background-position:0 0;}
+}
+.paymentStatus{min-height:100vh;display:flex;justify-content:center;background-color:#028090;background:radial-gradient(circle at 0% 0%, #028090 calc(50% - 1px), #05668D calc(50% - 1px));background-size:250%;background-position:100% 100%;align-items:center;flex-wrap:wrap;}
+.paymentStatus .loading, .paymentStatus .paymentOutput{text-align:center;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+.paymentStatus .loading md-progress-circular, .paymentStatus .paymentOutput md-progress-circular{margin:25px auto;text-align:center;}
+.paymentStatus .loading md-progress-circular path, .paymentStatus .paymentOutput md-progress-circular path{stroke:#FBC02D;}
+.paymentStatus .loading p, .paymentStatus .paymentOutput p{text-align:center;color:#FBC02D;font-weight:700;font-size:16px;}
+.paymentStatus .loading p i, .paymentStatus .paymentOutput p i{font-size:150px;margin:15px 0;animation:iconA 0.5s ease;display:inline-block;}
+@keyframes iconA{0%{transform:scale(0);}
+}
+.password-forgot{background-color:#028090;min-height:100vh;overflow:hidden;}
+.password-forgot h1{color:#05668D;font-size:50px;font-weight:600;}
+.password-forgot p{color:#05668D;font-size:12px;width:90%;margin:0 auto;}
+.password-forgot .requestForgot{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);width:500px;text-align:center;}
+.password-forgot .requestForgot p{text-align:center;color:#FBC02D;font-weight:800;}
+.password-forgot .requestForgot p i{font-size:150px;animation:iconApp 0.5s ease;display:inline-block;}
+@keyframes iconApp{0%{transform:scale(0);}
+}
+.password-forgot .password-container{box-shadow:0px 0px 15px #05668D;background-color:#CCE5FB;margin:140px auto;width:500px;animation-name:login-box;animation-duration:0.3s;animation-timing-function:ease;}
+@keyframes login-box{0%{transform:translateY(50%);}
+}
+.password-forgot .password-container md-content{background-color:#CCE5FB;}
+.password-forgot .password-container md-content md-input-container{width:70%;margin:30px auto;}
+.password-forgot .password-container md-content md-input-container label{color:#05668D;}
+.password-forgot .password-container md-content md-input-container:not(.md-input-invalid).md-input-focused .md-input{border-color:#05668D;}
+.password-forgot .password-container span{font-weight:400;color:#271F30;}
+.password-forgot .password-container a{text-align:right;text-decoration:none;color:#05668D;}
+.password-forgot .password-container .password-output{text-align:center;margin:10px auto;font-weight:800;color:#028090;display:block;}
+.password-forgot .password-container .md-button{margin:40px auto;width:200px;display:block;background-color:#E3E3E3;color:#05668D;}
+.password-forgot .password-container .md-button span{color:#05668D;}
+.password-forgot .password-container .md-button:disabled{opacity:0.6;}
+@media (max-width:600px){.password-forgot{overflow:hidden;}
+.password-forgot h1{font-size:30px;text-align:center;}
+.password-forgot .password-container{width:100%;}
+.password-forgot .password-container md-content md-input-container{display:block;width:100%;}
+}
+.admin-panel{min-height:100vh;background-color:#028090;overflow:hidden;}
+.admin-panel .md-nav-bar{margin-top:80px;color:#CCE5FB;}
+.admin-panel .md-button.md-default-theme.md-accent, .admin-panel .md-button.md-accent{color:#CCE5FB;font-weight:300;}
+.admin-panel md-nav-bar .md-button._md-nav-button.md-unselected{color:#E3E3E3;font-weight:300;}
+.admin-panel md-nav-bar.md-default-theme md-nav-ink-bar, .admin-panel md-nav-bar md-nav-ink-bar{background-color:#CCE5FB;}
+.admin-panel md-nav-bar .md-button.md-default-theme.md-accent:not([disabled]) md-icon, .admin-panel md-nav-bar .md-button.md-accent:not([disabled]) md-icon{font-size:30px;color:#CCE5FB;}
+.admin-panel .complicated h2, .admin-panel .all-offers h2, .admin-panel .all-requests h2{font-size:16px;margin:20px;font-weight:600;color:#FBC02D;width:80%;}
+.admin-panel .complicated .complicated-container{display:flex;justify-content:flex-start;}
+.admin-panel .complicated .complicated-container .request{margin:20px;background-color:#CCE5FB;width:400px;}
+.admin-panel .complicated .complicated-container .request ul li{list-style-type:none;margin:10px;}
+.admin-panel .complicated .complicated-container .request ul li span{font-weight:800;}
+.admin-panel .all-offers .offers{width:100%;overflow-x:scroll;display:flex;justify-content:flex-start;align-items:center;flex-wrap:wrap;}
+.admin-panel .all-offers .offers .offer{width:100px;height:50px;margin:3px;background-color:#CCE5FB;padding:3px;cursor:pointer;}
+.admin-panel .all-offers .offers .offer:hover{background-color:#FBC02D;}
+.admin-panel .all-offers .offers .offer p{font-size:12px;color:#05668D;}
+.admin-panel .all-offers .offers .offerVerified{background-color:#5AF385;}
+.admin-panel .all-offers .offers .offerNotVerified{background-color:#FB7777;}
+.admin-panel .all-requests .request{padding:20px;background-color:#CCE5FB;width:400px;margin:20px;}
+.admin-panel .all-requests .request ul li{list-style-type:none;margin:10px;}
+.admin-panel .all-requests .request ul li span{font-weight:800;}
+.admin-show-offer ul li{margin:10px;}
+.admin-show-offer ul li span span{background-color:#05668D;color:#CCE5FB;}
+*{padding:0;margin:0;font-family:"Roboto";}
+.appMainClass.dialogOn{filter:blur(1px) grayscale(50%);}
+.dialogOn-add, .dialogOn-remove{transition-duration:0.5s;}
+::-webkit-scrollbar{width:10px;height:5px;}
+::-webkit-scrollbar-thumb{background:#05668D;}
+::-webkit-scrollbar-track{background:#028090;}
+.dataloading{position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+.dataloading .md-yellow{color:#FBC02D;fill:#FBC02D;}
+.dataloading .md-yellow path{stroke:#FBC02D;}
+md-toast.md-default-theme .md-toast-content, md-toast .md-toast-content{opacity:0.9;background-color:#05668D;color:#FBC02D;font-weight:600;border-radius:none;}
+md-dialog.md-default-theme, md-dialog{background-color:#E3E3E3;border-radius:0;color:#05668D;}
+md-dialog.md-default-theme span, md-dialog span{color:#05668D;}
+a{text-decoration:none;}
+.md-button.md-fab.fab-accent{background-color:#FBC02D;transition-duration:0.5s;}
+.md-button.md-fab.fab-accent:hover{background-color:#FBC02D;opacity:0.6;}
+.main-navbar{background-color:#05668D;position:absolute;width:100%;z-index:999;height:60px;overflow-y:hidden;}
+.main-navbar h1{margin-left:25px;font-size:50px;font-weight:900;}
+.main-navbar h1 b{font-weight:800;color:#FBC02D;font-family:"Work Sans";display:inline-block;animation-name:spanA;animation-duration:0.4s;animation-delay:0.2s;animation-timing-function:ease;animation-fill-mode:backwards;}
+@keyframes spanA{0%{transform:translateY(100%);}
+}
+.main-navbar h1 a{text-decoration:none;color:#CCE5FB;font-family:"Work Sans";}
+.main-navbar ul li{display:inline-block;}
+.main-navbar ul li .md-button{min-width:auto;}
+.main-navbar ul li .md-button md-icon{font-size:26px;height:auto;color:#CCE5FB;}
+.main-navbar ul li .md-button:not([disabled]){color:#CCE5FB;font-size:12px;font-family:Roboto;font-weight:300;transition-duration:0.5s;}
+.main-navbar ul li .md-button:not([disabled]):hover{background-color:rgba(255, 255, 255, 0.1);color:#FBC02D;}
+.main-navbar ul li .md-button:not([disabled]) i{font-size:25px;}
+@media (max-width:600px){.main-navbar h1{font-size:40px;margin-left:10px;}
+.main-navbar ul li .md-button{margin:0;}
+}

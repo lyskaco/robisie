@@ -1,0 +1,259 @@
+<div class="hirepro-container">
+<md-content class="">
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="goto('page1')" name="page1"><md-icon hide-gt-xs class='mdi mdi-account-edit'></md-icon><span hide-xs>Moje konto</span> <md-tooltip hide-gt-xs md-direction="bottom">Moje konto</md-tooltip></md-nav-item>
+      <md-nav-item md-nav-click="goto('page2')" name="page2"><md-icon hide-gt-xs class='mdi mdi-find-replace'></md-icon><span hide-xs>Znajdź specjalistę</span> <md-tooltip hide-gt-xs md-direction="bottom">Znajdź specjalistę</md-tooltip></md-nav-item>
+      <md-nav-item md-nav-click="goto('page3')" name="page3"><md-icon hide-gt-xs class='mdi mdi-history'></md-icon><span hide-xs>Historia zamówień</span> <md-tooltip hide-gt-xs md-direction="bottom">Historia zamówień</md-tooltip><span ng-show='reviewMissing>0' class="label">{{reviewMissing}}</span></md-nav-item>
+      <!-- these require actual routing with ui-router or ng-route, so they won't work in the demo
+      <md-nav-item md-nav-sref="app.page4" name="page4">Page Four</md-nav-item>
+      <md-nav-item md-nav-href="#page5" name="page5">Page Five</md-nav-item>
+      -->
+    </md-nav-bar>
+    <div class="ext-content">
+      <section class="account" ng-show='currentNavItem==="page1"'>
+        <article class="credentials">
+          <div class="missing-data" ng-show='!user.address || !user.phone'>
+            <i class="mdi mdi-alert"></i>
+            <span>Uzupełnij brakujące dane!</span>
+          </div>
+
+      <md-card class='md-whiteframe-4dp'>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{user.f_name}} {{user.lname}}</span>
+            <span class="md-subhead">Ulica: {{user.address}}</span>
+            <span class="md-subhead">Telefon: {{user.phone}}</span>
+            <span class="md-subhead">Email: {{user.email}}</span>
+          </md-card-title-text>
+          <md-card-title-media>
+            <div class="md-media-lg card-media">
+              <img ng-if='user.picture' ng-src='{{user.picture}}' alt="" ng-click='updatePhoto'>
+              <img ng-if='!user.picture' ng-src="/img/user.png" alt="">
+            </div>
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-fab" aria-label="Edytuj dane" ng-click='editDataDialog($event)'>
+          <md-tooltip md-direction="left">Zmień dane</md-tooltip>
+          <md-icon class='mdi mdi-account-edit'></md-icon>
+        </md-button>
+        </md-card-actions>
+      </md-card>
+        </article>
+      </section>
+    <section class="find-pro" ng-show='currentNavItem==="page2"'>
+      <article class='offers'>
+        <h1 >Oferty:</h1>
+           <md-switch ng-init='sorting_order=true; limit=2' ng-model="sorting_order" aria-label="switch" class='switch'  md-invert>
+
+             <span ng-if='sorting_order===true' >Najpierw najnowsze</span>
+             <span ng-if='sorting_order===false'>Najpierw najstarsze</span>
+          </md-switch><br>
+
+          <div class="container">
+            <div class="filter-first" ng-hide='showOffers'>
+                <h2>Wypełnij pola, żeby wyświetlić specjalistów.</h2> 
+                <i class="mdi mdi-account-search"></i>
+            </div>
+            <div  ng-cloak ng-show='showOffers' class="offer" ng-repeat='offer in filtered = (offers | filter:filter.category | filter: weekFilter | filter: myFilterBy | orderBy: !sorting_order ? "timeStamp" : "-timeStamp") | limitTo : limit'>
+              <div class="general-info">
+                  <div class="profile-photo">
+                    <img  ng-if='offer.professional_picture' ng-src="{{offer.professional_picture}} " alt="">
+                    <img ng-if='!offer.professional_picture' ng-src='/img/user.png' alt="alternative photo">
+                  </div>
+                  <h2>{{offer.professional_fname}} {{offer.professional_lname | limitTo:1}}.</h2>
+                  <ul class="fields">
+                    Umiejętności: <li ng-repeat='field in offer.professional_field'>
+                    <span ng-if='field === "cleaning"'>Sprzątanie</span>
+                    <span ng-if='field === "moving"'>Przeprowadzki</span>
+                    <span ng-if='field === "assembly"'>Składanie mebli</span>
+                    <span ng-if='field === "handyman"'>Złota rączka</span>
+                    <span ng-if='field === "gardening"'>Zakupy</span>
+                    </li>
+                  </ul>
+                  <div class="ranking">
+                    <span>Ocena:</span>  
+                    <span ng-if='offer.professional_ranking'>{{offer.professional_ranking}}%</span>
+                    <span ng-if='!offer.professional_ranking'>Brak oceny</span>
+                    <md-progress-circular ng-if='offer.professional_ranking' md-mode="determinate" md-diameter ='35' value="{{offer.professional_ranking}}"></md-progress-circular>
+                  </div>
+                  <div class="description">
+                    <h3>O mnie:</h3>
+                    <p>{{offer.professional_description}}</p>
+                  </div>
+                   <div class="button-container">
+                     <md-button ng-click='showReviews($event, offer)' class='md-cornered'>
+                     <i class='mdi mdi-account-card-details'></i>profil i recenzje</md-button>
+                       <md-button ng-click='bookPro($event, offer)' class='md-cornered md-raised md-primary'>
+                       <i class="mdi mdi-calendar-multiple-check"></i>zarezerwuj</md-button>
+                    </div>
+              </div>
+                  <div class="price">
+                    <h3 ng-if='filter.category==="cleaning"'>{{offer.price.cleaning}} PLN/h</h3>
+                    <h3 ng-if='filter.category==="moving"'>{{offer.price.moving}} PLN/h</h3>
+                    <h3 ng-if='filter.category==="assembly"'>{{offer.price.assembly}} PLN/h</h3>
+                    <h3 ng-if='filter.category==="handyman"'>{{offer.price.handyman}} PLN/h</h3>
+                    <h3 ng-if='filter.category==="gardening"'>{{offer.price.gardening}} PLN/h</h3>
+                  </div>
+
+              
+              
+            </div>
+            <div layout-align='end end' class="md-block showMore" ng-show='showOffers'>
+              <md-button ng-click='limit=limit+5' ng-show='limit<filtered.length'>Pokaż więcej</md-button>
+            </div>
+          </div>
+        </article>
+      <aside class="panel">
+        <h1>Filtr:</h1>
+        <form name="projectForm">
+        <h2>Wybierz kategorię:</h2>
+        <div class="svg-container" layout='row' layout-wrap layout-align='center center' layout-align-xs='space-around center'>
+        <div class="svg-item" ng-repeat='svg in svgs'>
+        <md-button class='md-fab md-mini' ng-click='filter.category=svg.service' ng-class='{selected: filter.category===svg.service}'>
+           <md-icon md-svg-src = '/svg/{{svg.svg}}' class='med' ></md-icon>
+        <md-tooltip md-direction="bottom">{{svg.polish_name}}</md-tooltip>
+       </md-button>
+        </div>
+        </div>
+<!--         <md-input-container class="md-block">
+          <label>Kategoria prac</label>
+          <md-icon class='mdi mdi-cube-outline md-icon' aria-label="counter "></md-icon>
+          <md-select name="type" ng-model="filter.category" required>
+            <md-option value="assembly">Składanie mebli</md-option>
+            <md-option value="moving">Przeprowadzki</md-option>
+            <md-option value="cleaning">Sprzątanie</md-option>
+            <md-option value="shopping">Zakupy</md-option>
+             <md-option value="handyman">Złota rączka</md-option>
+          </md-select>
+        </md-input-container>
+ -->
+         <md-input-container class='md-block'>
+        <label>Wybierz datę</label>
+        <md-datepicker ng-model="filter.date" name="dateField" class='md-block' md-open-on-focus ng-required></md-datepicker>
+        <div ng-messages="projectForm.dateField.$error">
+          <div ng-message="required">Data jest wymagana!</div>
+          <div ng-message="valid">Wpisana wartość nie jest datą!</div>
+          <div ng-message="pattern">To pole jest wymagane!</div>
+        </div>
+      </md-input-container>
+      
+        <mdp-time-picker mdp-placeholder="Godzina rozpoczęcia" ng-model="filter.startTime"></mdp-time-picker>
+
+        <md-input-container class="md-block">
+        <label>Liczba godzin</label>
+        <md-icon class='mdi mdi-counter md-icon' aria-label="counter "></md-icon>
+        <input min="1"  pattern="\d*" step="1" ng-model="jobDuration" type="number" name='jobDuration' required>
+        <div ng-messages="projectForm.jobDuration.$error">
+          <div ng-message="pattern">Pole musi zawierać liczbę całkowitą!</div>
+      
+    </div>
+      </md-input-container>
+        <div class="button-container">
+          <md-button aria-label='login button' class='md-raised md-cornered'  ng-disabled="projectForm.$invalid || !filter.date || !filter.startTime || !filter.category" ng-click='setScheduleFilter()'>Szukaj</md-button><br>
+              {{filterMessage}}
+        </div>
+
+             </form>
+      </aside>
+    </section>
+    <section class="request-given" ng-show='currentNavItem==="page3"'>
+        <div class="filter-bar">
+          <md-input-container  flex='80'>
+            <label>Filtruj</label>
+            <md-select ng-model="requestFilter">
+                          <md-option value=''>
+                Wszystkie
+              </md-option>
+              <md-option value="completed">
+                Wykonane
+              </md-option>
+               <md-option value="pending">
+                Oczekujące
+              </md-option>
+               <md-option value="accept">
+                Zaakceptowane
+              </md-option>
+              <md-option value="reject">
+                Odrzucone
+              </md-option>
+               <md-option value="complicated">
+                Skomplikowane
+              </md-option>
+              <md-option value="resolved">
+                Zakończone
+              </md-option>
+          </md-input-container>
+        </div>
+        <div class="no-request" ng-if='!request_given'>Brak zamówień</div>
+        <div class="request" ng-repeat='request in request_given | filter: requestFilter | orderBy: timestamp_request:true' ng-class='{requestdisabled: request.status_request==="reject", request_completed: request.status_request==="completed", request_complicated: request.status_request==="complicated" }'>
+          <div class="info md-whiteframe-2dp">
+             <div class="decoration">
+                <i class="mdi mdi-information-outline"></i>
+            </div>
+            <ul class="prof-data">
+              <h5>Informacje: </h5>
+              <li><b>ID:</b> {{request.id_Request}}</li> 
+              <li><b>Data dodania: </b> {{request.timestamp_request | date: 'dd/MM/yy HH:mm '}}</li>
+              <li><b>Status:</b>
+               <span ng-if='request.status_request==="pending"'>Opłacone, oczekiwanie na zgodę specjalisty</span>
+               <span ng-if='request.status_request==="accept"'>Zaakceptowane przez specjalistę</span>
+               <span ng-if='request.status_request==="completed"'>Zlecenie wykonane<span ng-if='request.isReview_Written==="0"'>, napisz recenzję</span></span>
+               <span ng-if='request.status_request==="complicated"'>Zaznaczyłeś, że zadanie nie zostało wykonane. Poczekaj na nasz kontakt</span>
+              <span ng-if='request.status_request==="donePro"'>Specjalista potwierdza wykonanie zlecenia</span>
+              <span ng-if='request.status_request==="notDonePro"'>Specjalista nie wykonał zlecenia</span>
+              <span ng-if='request.status_request==="reject"' class="md-warn">Zlecenie odrzucone przez specjalistę - zwrot pieniędzy.</span>
+              <span ng-if='request.status_request==="resolved"'>Zakończone</span>
+              </li>
+              <li><b>Rodzaj usługi:</b>
+                    <span ng-if='request.professional_field_request === "cleaning"'>Sprzątanie</span>
+                    <span ng-if='request.professional_field_request === "moving"'>Przeprowadzki</span>
+                    <span ng-if='request.professional_field_request === "assembly"'>Składanie mebli</span>
+                    <span ng-if='request.professional_field_request === "handyman"'>Złota rączka</span>
+                    <span ng-if='request.professional_field_request === "gardening"'>Ogrodnik</span></li>
+              <li><b>Cena:</b> {{request.price_request}}zł</li>
+            </ul>
+            <md-button class='md-fab md-mini' aria-label='Write Review' ng-hide='request.status_request!=="completed" || request.isReview_Written==="1"' ng-click='writeReview($event, request)'>
+            <md-tooltip md-direction="left">Napisz recenzję</md-tooltip>
+            <md-icon class='mdi mdi-lead-pencil'></md-icon></md-button> <!-- && request.isReviewGiven === false -->
+          
+            <div class="confirmDoneContainer" ng-if='request.status_request==="donePro"'>
+             <md-button class='md-fab md-mini accept' aria-label='accept offer' ng-disabled='request.status_request!=="donePro"' ng-click='confirmDoneCustomer(request, "complicated")'>
+              <md-tooltip md-direction="left">Zlecenie niewykonane</md-tooltip>
+            <md-icon class='mdi mdi-close'></md-icon></md-button>
+
+             <md-button class='md-fab md-mini reject' aria-label='accept offer' ng-disabled='request.status_request!=="donePro"' ng-click='confirmDoneCustomer(request, "completed")'>
+            <md-tooltip md-direction="left">Zlecenie wykonane</md-tooltip>
+            <md-icon class='mdi mdi-check'></md-icon></md-button>
+          
+          </div>
+          </div>
+           <div class="time md-whiteframe-2dp">
+              <div class="decoration">
+                <i class='mdi mdi-calendar-clock'></i>
+              </div>
+              <ul>
+                <h5>Czas: </h5>
+                <li><b>Data rozpoczęcia usługi:</b> <span>{{request.start_time_resquest | date:'dd/MM/yy HH:mm '}} </span></li>
+                <li><b>Data zakończenia usługi:</b> <span>{{request.end_time_request | date:'dd/MM/yy HH:mm '}} </span></li>
+                <li><b>Czas trwania usługi:</b> <span>{{request.job_duration_request}}h</span></li>
+              </ul>
+             
+            </div>
+            <div class="professional-info md-whiteframe-2dp">
+               <div class="decoration">
+                  <i class="mdi mdi-screwdriver"></i>
+                </div>
+                <ul class="prof-data">
+                  <h5>Dane specjalisty: </h5>
+                  <li><i class="mdi mdi-account-circle"></i>{{request.f_name_professional}} {{request.l_name_professional | limitTo : 1}}</li>
+                  <li><i class="mdi mdi-email"> </i>{{request.email_professional}}</li>
+                  <li><i class="mdi mdi-phone"> </i> {{request.phone_professional}}</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+  </md-content>
+  </div>
